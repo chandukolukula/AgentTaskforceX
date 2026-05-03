@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <botVersions>
+        <fullName>v1</fullName>
+        <botDialogGroups>
+            <!-- Topic: Shelf Audit -->
+            <fullName>ShelfAudit_Topic</fullName>
+            <label>Shelf Audit &amp; Compliance</label>
+            <botDialogs>
+                <fullName>ConductShelfAudit</fullName>
+                <developerName>ConductShelfAudit</developerName>
+                <label>Conduct Shelf Audit</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>conduct a shelf audit</utterance>
+                        <utterance>analyze this shelf photo</utterance>
+                        <utterance>check planogram compliance</utterance>
+                        <utterance>audit the shelf</utterance>
+                        <utterance>scan the shelf</utterance>
+                        <utterance>check if shelf is compliant</utterance>
+                        <utterance>what products are missing from the shelf</utterance>
+                        <utterance>audit shelf for store</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallShelfAuditService</stepName>
+                    <invocableActionName>ShelfAuditService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>AuditCompleteResponse</stepName>
+                    <botMessages>
+                        <message>✅ Shelf audit complete!\n\n📊 Compliance Score: {!auditResult.complianceScore}%\n🏪 Brand Shelf Share: {!auditResult.shelfShare}%\n❌ Missing SKUs: {!auditResult.missingSKUs}\n\n🎯 I've created {!auditResult.recommendationCount} follow-up tasks for you.\n\n{!auditResult.replenishmentOrder}</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+
+            <!-- Topic: WhatsApp Report -->
+            <botDialogs>
+                <fullName>SendWhatsAppReport</fullName>
+                <developerName>SendWhatsAppReport</developerName>
+                <label>Send WhatsApp Report</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>send WhatsApp report</utterance>
+                        <utterance>send audit to my phone</utterance>
+                        <utterance>WhatsApp me the results</utterance>
+                        <utterance>send compliance report via WhatsApp</utterance>
+                        <utterance>text me the audit results</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallWhatsAppService</stepName>
+                    <invocableActionName>WhatsAppNotificationService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>WhatsAppSentResponse</stepName>
+                    <botMessages>
+                        <message>📱 Done! Your compliance report has been sent to your WhatsApp. Check your phone before you leave the store.</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <!-- Topic: Competitor Intelligence -->
+        <botDialogGroups>
+            <fullName>CompetitorIntelligence_Topic</fullName>
+            <label>Competitor Intelligence</label>
+            <botDialogs>
+                <fullName>GetCompetitorIntel</fullName>
+                <developerName>GetCompetitorIntel</developerName>
+                <label>Get Competitor Intelligence</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>what competitor products are on the shelf</utterance>
+                        <utterance>detect competitor products</utterance>
+                        <utterance>which competitors are present</utterance>
+                        <utterance>competitor shelf share</utterance>
+                        <utterance>who is taking our shelf space</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallCompetitorService</stepName>
+                    <invocableActionName>CompetitorIntelligenceService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>CompetitorResponse</stepName>
+                    <botMessages>
+                        <message>🔍 Competitor Intelligence Report:\n\n{!competitorResult.competitorSummary}\n\n💡 Dominant competitor: {!competitorResult.dominantCompetitorBrand}\nTotal brands detected: {!competitorResult.competitorCount}</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <!-- Topic: Replenishment -->
+        <botDialogGroups>
+            <fullName>Replenishment_Topic</fullName>
+            <label>Replenishment Orders</label>
+            <botDialogs>
+                <fullName>CreateReplenishmentOrder</fullName>
+                <developerName>CreateReplenishmentOrder</developerName>
+                <label>Create Replenishment Order</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>create a replenishment order</utterance>
+                        <utterance>order missing products</utterance>
+                        <utterance>restock the shelf</utterance>
+                        <utterance>order products for this store</utterance>
+                        <utterance>create order for missing SKUs</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallReplenishmentService</stepName>
+                    <invocableActionName>ReplenishmentOrderService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>OrderCreatedResponse</stepName>
+                    <botMessages>
+                        <message>📦 {!orderResult.orderDetails}\n\nThe replenishment order has been submitted. Delivery is expected within 2 business days.</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <entryDialog>Welcome</entryDialog>
+        <mainMenuDialog>MainMenu</mainMenuDialog>
+        <responseDelayMilliseconds>1000</responseDelayMilliseconds>
+    </botVersions>
+
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>Visit</SObjectType>
+            <fieldName>Id</fieldName>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>VisitId</developerName>
+        <label>Current Visit ID</label>
+    </contextVariables>
+    <contextVariables>
+        <contextVariableMappings>
+            <SObjectType>RetailStore</SObjectType>
+            <fieldName>Id</fieldName>
+        </contextVariableMappings>
+        <dataType>Id</dataType>
+        <developerName>StoreId</developerName>
+        <label>Current Store ID</label>
+    </contextVariables>
+
+    <description>ABC Foods Retail Execution Compliance Agent — an AI-powered co-pilot that helps field sales reps conduct shelf audits, check planogram compliance, detect competitor products, and send instant WhatsApp compliance reports, all from their mobile device.</description>
+    <label>Retail Compliance Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>60</sessionTimeout>
+    <type>Agent</type>
+</Bot>
