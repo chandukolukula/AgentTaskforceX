@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <botVersions>
+        <fullName>v1</fullName>
+        <botDialogGroups>
+            <!-- Topic: Product Information -->
+            <fullName>ProductInfo_Topic</fullName>
+            <label>Product Information</label>
+            <botDialogs>
+                <fullName>GetProductInfo</fullName>
+                <developerName>GetProductInfo</developerName>
+                <label>Get Product Information</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>show me product information</utterance>
+                        <utterance>tell me about your products</utterance>
+                        <utterance>what products do you have</utterance>
+                        <utterance>search for a product</utterance>
+                        <utterance>find a product</utterance>
+                        <utterance>product details</utterance>
+                        <utterance>show me ABC Foods products</utterance>
+                        <utterance>what snacks do you sell</utterance>
+                        <utterance>tell me about {productName}</utterance>
+                        <utterance>do you have {productName}</utterance>
+                        <utterance>show me products in {category}</utterance>
+                        <utterance>what are your cookies</utterance>
+                        <utterance>what confectionery items do you have</utterance>
+                        <utterance>show me your health bars</utterance>
+                        <utterance>do you sell premium snacks</utterance>
+                        <utterance>what snacks are available</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>CollectInput</stepType>
+                    <stepName>AskForProductSearch</stepName>
+                    <botMessages>
+                        <message>What product would you like to know about? You can search by product name or category (like cookies, confectionery, health bars, etc.).</message>
+                    </botMessages>
+                    <botVariableOperation>
+                        <botVariableOperands>
+                            <botVariableName>searchTerm</botVariableName>
+                        </botVariableOperands>
+                        <type>Set</type>
+                    </botVariableOperation>
+                </botSteps>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallProductInfoService</stepName>
+                    <invocableActionName>ProductInfoService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                    <invocableInputVariables>
+                        <name>searchTerm</name>
+                        <value>{!searchTerm}</value>
+                    </invocableInputVariables>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>ProductInfoResponse</stepName>
+                    <botMessages>
+                        <message>{!productResult.message}\n\n📦 Found {!productResult.productCount} products:\n\n{!productResult.productDetails}</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <!-- Topic: Store Locator -->
+        <botDialogGroups>
+            <fullName>StoreLocator_Topic</fullName>
+            <label>Store Locator</label>
+            <botDialogs>
+                <fullName>FindNearbyStores</fullName>
+                <developerName>FindNearbyStores</developerName>
+                <label>Find Nearby Stores</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <mlIntent>
+                    <mlIntentUtterances>
+                        <utterance>find stores near me</utterance>
+                        <utterance>where can I buy your products</utterance>
+                        <utterance>show me nearby stores</utterance>
+                        <utterance>find a store</utterance>
+                        <utterance>locate stores</utterance>
+                        <utterance>where is the nearest store</utterance>
+                        <utterance>stores in my area</utterance>
+                        <utterance>where can I purchase ABC Foods</utterance>
+                        <utterance>retail locations near me</utterance>
+                        <utterance>find stores based on my location</utterance>
+                        <utterance>show me stores nearby</utterance>
+                        <utterance>closest stores to me</utterance>
+                    </mlIntentUtterances>
+                </mlIntent>
+                <botSteps>
+                    <stepType>CollectInput</stepType>
+                    <stepName>AskForLocation</stepName>
+                    <botMessages>
+                        <message>I can help you find nearby stores! Please share your location or enter your coordinates (latitude, longitude).</message>
+                    </botMessages>
+                    <botVariableOperation>
+                        <botVariableOperands>
+                            <botVariableName>userLatitude</botVariableName>
+                        </botVariableOperands>
+                        <type>Set</type>
+                    </botVariableOperation>
+                </botSteps>
+                <botSteps>
+                    <stepType>CollectInput</stepType>
+                    <stepName>AskForLongitude</stepName>
+                    <botMessages>
+                        <message>And the longitude?</message>
+                    </botMessages>
+                    <botVariableOperation>
+                        <botVariableOperands>
+                            <botVariableName>userLongitude</botVariableName>
+                        </botVariableOperands>
+                        <type>Set</type>
+                    </botVariableOperation>
+                </botSteps>
+                <botSteps>
+                    <stepType>InvocableCallout</stepType>
+                    <stepName>CallStoreLocatorService</stepName>
+                    <invocableActionName>StoreLocatorService</invocableActionName>
+                    <invocableActionType>apex</invocableActionType>
+                    <invocableInputVariables>
+                        <name>latitude</name>
+                        <value>{!userLatitude}</value>
+                    </invocableInputVariables>
+                    <invocableInputVariables>
+                        <name>longitude</name>
+                        <value>{!userLongitude}</value>
+                    </invocableInputVariables>
+                </botSteps>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>StoreLocatorResponse</stepName>
+                    <botMessages>
+                        <message>📍 {!storeResult.message}\n\n🏪 Found {!storeResult.storeCount} stores nearby:\n\n{!storeResult.storeDetails}</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <!-- Welcome Dialog -->
+        <botDialogGroups>
+            <fullName>Welcome_Topic</fullName>
+            <label>Welcome</label>
+            <botDialogs>
+                <fullName>Welcome</fullName>
+                <developerName>Welcome</developerName>
+                <label>Welcome</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>WelcomeMessage</stepName>
+                    <botMessages>
+                        <message>👋 Welcome to ABC Foods E-Commerce Agent!\n\nI can help you with:\n✅ Product information and details\n✅ Finding stores near your location\n\nHow can I assist you today?</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <!-- Main Menu Dialog -->
+        <botDialogGroups>
+            <fullName>MainMenu_Topic</fullName>
+            <label>Main Menu</label>
+            <botDialogs>
+                <fullName>MainMenu</fullName>
+                <developerName>MainMenu</developerName>
+                <label>Main Menu</label>
+                <isPlaceholderDialog>false</isPlaceholderDialog>
+                <botSteps>
+                    <stepType>Message</stepType>
+                    <stepName>MainMenuMessage</stepName>
+                    <botMessages>
+                        <message>How can I help you?\n\n1️⃣ Get product information\n2️⃣ Find nearby stores\n\nJust tell me what you need!</message>
+                    </botMessages>
+                </botSteps>
+            </botDialogs>
+        </botDialogGroups>
+
+        <entryDialog>Welcome</entryDialog>
+        <mainMenuDialog>MainMenu</mainMenuDialog>
+        <responseDelayMilliseconds>1000</responseDelayMilliseconds>
+    </botVersions>
+
+    <contextVariables>
+        <dataType>Text</dataType>
+        <developerName>searchTerm</developerName>
+        <label>Search Term</label>
+    </contextVariables>
+    <contextVariables>
+        <dataType>Number</dataType>
+        <developerName>userLatitude</developerName>
+        <label>User Latitude</label>
+    </contextVariables>
+    <contextVariables>
+        <dataType>Number</dataType>
+        <developerName>userLongitude</developerName>
+        <label>User Longitude</label>
+    </contextVariables>
+
+    <description>ABC Foods E-Commerce Agent helps customers discover products and find nearby retail stores. The agent provides detailed product information and locates stores based on user location, enhancing the customer shopping experience.</description>
+    <label>ABC Foods E-Commerce Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>60</sessionTimeout>
+    <type>Agent</type>
+</Bot>
