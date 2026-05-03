@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Conducts a comprehensive shelf audit by analyzing a shelf photo using Einstein Vision. Automatically checks planogram compliance, identifies missing SKUs, detects competitor products, creates follow-up tasks, and generates a replenishment order if needed.</description>
+    <developerName>Conduct_Shelf_Audit</developerName>
+    <masterLabel>Conduct Shelf Audit</masterLabel>
+    <pluginType>DataAction</pluginType>
+    <status>Active</status>
+    <pluginFunctions>
+        <functionName>conductShelfAudit</functionName>
+        <description>Analyzes a shelf image and returns a complete audit report with compliance score, missing SKUs, competitor intelligence, and recommended actions.</description>
+        <type>Apex</type>
+        <responseHandler>Apex</responseHandler>
+        <parameters>
+            <parameterName>visitId</parameterName>
+            <dataType>String</dataType>
+            <description>The Salesforce ID of the Visit record for this store visit</description>
+            <isRequired>true</isRequired>
+        </parameters>
+        <parameters>
+            <parameterName>storeId</parameterName>
+            <dataType>String</dataType>
+            <description>The Salesforce ID of the RetailStore record</description>
+            <isRequired>true</isRequired>
+        </parameters>
+        <parameters>
+            <parameterName>imageUrl</parameterName>
+            <dataType>String</dataType>
+            <description>The URL of the shelf photo captured by the field rep</description>
+            <isRequired>false</isRequired>
+        </parameters>
+        <parameters>
+            <parameterName>aisleSection</parameterName>
+            <dataType>String</dataType>
+            <description>The aisle or shelf section being audited (e.g. Snacks Aisle 5)</description>
+            <isRequired>false</isRequired>
+        </parameters>
+    </pluginFunctions>
+</GenAiPlugin>

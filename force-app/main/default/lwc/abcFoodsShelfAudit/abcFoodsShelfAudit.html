@@ -1,0 +1,54 @@
+<template>
+    <div class="audit-panel">
+        <!-- Store context header -->
+        <div class="panel-header">
+            <div class="header-brand">
+                <span class="brand-dot"></span>
+                <span class="brand-name">ABC Foods</span>
+                <span class="header-divider">|</span>
+                <span class="header-label">Shelf Audit</span>
+            </div>
+            <template if:true={storeName}>
+                <div class="store-row">
+                    <span class="store-name">{storeName}</span>
+                    <template if:true={hasLastAudit}>
+                        <span class="last-audit-badge">Last: {lastComplianceScore}% &nbsp;·&nbsp; {lastAuditDate}</span>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <!-- Agent context message -->
+        <template if:true={showDisplayMessage}>
+            <div class="context-message">
+                <lightning-icon icon-name="utility:info_alt" size="x-small" class="info-icon"></lightning-icon>
+                <span>{displayMessage}</span>
+            </div>
+        </template>
+
+        <template if:true={showAuditPrompt}>
+            <div class="reaudit-prompt">
+                <div class="reaudit-question">A previous audit already exists. Do you want to perform another audit?</div>
+                <div class="reaudit-actions">
+                    <button class="reaudit-btn reaudit-btn--yes" onclick={handlePerformAuditYes}>Yes, Start New Audit</button>
+                    <button class="reaudit-btn reaudit-btn--no" onclick={handlePerformAuditNo}>No</button>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={showAuditSkippedMessage}>
+            <div class="reaudit-skip-message">Using the existing audit result. Select "Yes, Start New Audit" above if you want to recapture.</div>
+        </template>
+
+        <!-- Embedded shelf audit capture -->
+        <template if:true={showShelfAuditCapture}>
+            <div class="capture-wrapper">
+                <c-shelf-audit-capture
+                    visit-id={visitId}
+                    store-id={storeId}
+                    store-name={storeName}
+                ></c-shelf-audit-capture>
+            </div>
+        </template>
+    </div>
+</template>

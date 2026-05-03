@@ -1,0 +1,163 @@
+<template>
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Contact page banner">
+        <div class="page-hero-inner">
+            <p class="eyebrow">GET IN TOUCH</p>
+            <h1 class="page-title">Contact Us</h1>
+            <p class="page-subtitle">
+                Questions, feedback, or partnership enquiries — we're here to help.
+                Our team typically responds within one business day.
+            </p>
+        </div>
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,30 Q300,60 600,30 Q900,0 1200,30 L1200,60 L0,60 Z" fill="#FFFDF8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contact Body -->
+    <section class="contact-section">
+        <div class="contact-shell">
+
+            <!-- Contact Info Cards -->
+            <aside class="contact-info">
+                <template for:each={contactCards} for:item="card">
+                    <div key={card.title} class="info-card">
+                        <span class="info-icon" aria-hidden="true">{card.icon}</span>
+                        <div>
+                            <p class="info-title">{card.title}</p>
+                            <p class="info-value">{card.value}</p>
+                            <p class="info-sub">{card.sub}</p>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- Social Links -->
+                <div class="social-row">
+                    <p class="social-label">Follow Us</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-btn" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-btn" aria-label="Instagram">ig</a>
+                        <a href="#" class="social-btn" aria-label="Twitter/X">X</a>
+                        <a href="#" class="social-btn" aria-label="Facebook">fb</a>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contact Form -->
+            <div class="form-panel">
+                <template if:false={formSubmitted}>
+                    <h2 class="form-title">Send us a message</h2>
+                    <form class="contact-form" onsubmit={handleSubmit} novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input
+                                    id="firstName"
+                                    type="text"
+                                    class={firstNameClass}
+                                    placeholder="Arjun"
+                                    value={formData.firstName}
+                                    data-field="firstName"
+                                    oninput={handleInput}
+                                    required
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input
+                                    id="lastName"
+                                    type="text"
+                                    class={lastNameClass}
+                                    placeholder="Kumar"
+                                    value={formData.lastName}
+                                    data-field="lastName"
+                                    oninput={handleInput}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input
+                                id="email"
+                                type="email"
+                                class={emailClass}
+                                placeholder="arjun@example.com"
+                                value={formData.email}
+                                data-field="email"
+                                oninput={handleInput}
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input
+                                id="phone"
+                                type="tel"
+                                class="form-input"
+                                placeholder="+91 98765 43210"
+                                value={formData.phone}
+                                data-field="phone"
+                                oninput={handleInput}
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="subject">Subject *</label>
+                            <select
+                                id="subject"
+                                class={subjectClass}
+                                value={formData.subject}
+                                data-field="subject"
+                                onchange={handleInput}
+                                required
+                            >
+                                <option value="">Select a topic...</option>
+                                <option value="General Enquiry">General Enquiry</option>
+                                <option value="Product Feedback">Product Feedback</option>
+                                <option value="Distribution Partnership">Distribution Partnership</option>
+                                <option value="Retail Stocking">Retail Stocking</option>
+                                <option value="Media & Press">Media & Press</option>
+                                <option value="Complaint">Complaint or Quality Issue</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message *</label>
+                            <textarea
+                                id="message"
+                                class={messageClass}
+                                rows="5"
+                                placeholder="Tell us how we can help..."
+                                value={formData.message}
+                                data-field="message"
+                                oninput={handleInput}
+                                required
+                            ></textarea>
+                        </div>
+                        <template if:true={hasError}>
+                            <p class="form-error" role="alert">{errorMessage}</p>
+                        </template>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </template>
+
+                <template if:true={formSubmitted}>
+                    <div class="success-state">
+                        <span class="success-icon" aria-hidden="true">✅</span>
+                        <h2 class="success-title">Message Sent!</h2>
+                        <p class="success-desc">
+                            Thank you, {formData.firstName}. We've received your message and will get
+                            back to you at <strong>{formData.email}</strong> within one business day.
+                        </p>
+                        <button type="button" class="btn-reset" onclick={handleReset}>
+                            Send Another Message
+                        </button>
+                    </div>
+                </template>
+            </div>
+
+        </div>
+    </section>
+</template>

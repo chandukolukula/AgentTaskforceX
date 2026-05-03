@@ -1,0 +1,67 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Contact",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"d4ebb3cc-83c3-4c8d-af94-27d3d2934677\",\"columns\":[{\"UUID\":\"bc8b1767-e3f0-4bf0-8183-d76468846f77\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:abcFoodsContactPage",
+              "id" : "18db45be-daf0-4733-9f23-e8eab97a187b",
+              "type" : "component"
+            } ],
+            "id" : "bc8b1767-e3f0-4bf0-8183-d76468846f77",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "d4ebb3cc-83c3-4c8d-af94-27d3d2934677",
+          "type" : "component"
+        } ],
+        "id" : "3b1935b3-e0e3-4882-af2b-a1c6da997aac",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "Contact",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "04eca730-8306-48e9-a857-a34fd6e1044e",
+          "type" : "component"
+        } ],
+        "id" : "b5239812-de05-45ca-b260-fceb76f51645",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "85f4be00-4c07-42cd-83bf-e7530aea1177",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-contact"
+  },
+  "urlName" : "contact"
+}

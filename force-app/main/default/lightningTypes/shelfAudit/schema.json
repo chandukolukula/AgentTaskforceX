@@ -1,0 +1,5 @@
+{
+  "title" : "Agentforce Response",
+  "description" : "Agentforce Response",
+  "lightning:type" : "@apexClassType/c__ShelfAuditCaptureAgentActions$ShelfAuditResult"
+}

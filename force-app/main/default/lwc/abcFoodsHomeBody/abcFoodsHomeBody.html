@@ -1,0 +1,159 @@
+<template>
+    <!-- Feature Highlight Banner -->
+    <section class="highlight-banner" aria-label="Freshness guarantee">
+        <div class="banner-inner">
+            <div class="banner-item">
+                <span class="banner-icon" aria-hidden="true">✅</span>
+                <span class="banner-text">Quality Guaranteed</span>
+            </div>
+            <div class="banner-divider" aria-hidden="true"></div>
+            <div class="banner-item">
+                <span class="banner-icon" aria-hidden="true">🏭</span>
+                <span class="banner-text">Made in India</span>
+            </div>
+            <div class="banner-divider" aria-hidden="true"></div>
+            <div class="banner-item">
+                <span class="banner-icon" aria-hidden="true">📦</span>
+                <span class="banner-text">60,000+ Retail Outlets</span>
+            </div>
+            <div class="banner-divider" aria-hidden="true"></div>
+            <div class="banner-item">
+                <span class="banner-icon" aria-hidden="true">🌿</span>
+                <span class="banner-text">No Artificial Colours</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" aria-labelledby="products-heading">
+        <div class="section-inner">
+
+            <!-- Section Header -->
+            <header class="section-header">
+                <p class="eyebrow">OUR PRODUCT RANGE</p>
+                <h2 id="products-heading" class="section-title">
+                    Discover Every Flavour
+                </h2>
+                <p class="section-subtitle">
+                    From everyday favourites to premium seasonal gifts — 48 products
+                    crafted with care for every taste and every occasion.
+                </p>
+            </header>
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-row" role="tablist" aria-label="Filter products by category">
+                <button
+                    class={allBtnClass}
+                    role="tab"
+                    aria-selected={isAllSelected}
+                    data-category="all"
+                    onclick={handleFilter}
+                >
+                    All Products
+                    <span class="filter-count">{totalCount}</span>
+                </button>
+                <template for:each={categoryFilters} for:item="cat">
+                    <button
+                        key={cat.value}
+                        class={cat.btnClass}
+                        role="tab"
+                        aria-selected={cat.isActive}
+                        data-category={cat.value}
+                        onclick={handleFilter}
+                    >
+                        <span class="filter-icon" aria-hidden="true">{cat.icon}</span>
+                        {cat.label}
+                        <span class="filter-count">{cat.count}</span>
+                    </button>
+                </template>
+            </div>
+
+            <!-- Results meta -->
+            <div class="results-meta">
+                <span class="results-label">
+                    Showing {filteredCount} of {totalCount} products
+                    <template if:false={isAllSelected}>
+                        in <strong>{selectedCategory}</strong>
+                    </template>
+                </span>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" aria-live="polite">
+                <template for:each={displayedProducts} for:item="product">
+                    <article class="product-card" key={product.id} aria-label={product.name}>
+
+                        <!-- Product Image Area -->
+                        <div class="card-image-area">
+                            <img
+                                class="card-cat-image"
+                                src={product.imageUrl}
+                                alt={product.category}
+                                loading="lazy"
+                                onerror={handleImgError}
+                            />
+                            <!-- Category badge on image -->
+                            <span class="card-cat-badge" style={product.badgeStyle}>
+                                {product.categoryShort}
+                            </span>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <p class="card-desc">{product.description}</p>
+
+                        </div>
+
+                    </article>
+                </template>
+            </div>
+
+            <!-- Show More / Show All -->
+            <template if:true={hasMore}>
+                <div class="load-more-row">
+                    <button class="btn-load-more" onclick={handleLoadMore} type="button">
+                        Show More Products ({remainingCount} remaining)
+                    </button>
+                </div>
+            </template>
+
+        </div>
+    </section>
+
+    <!-- About Band -->
+    <section class="about-band" aria-labelledby="about-band-heading">
+        <div class="about-band-inner">
+            <div class="about-band-text">
+                <p class="eyebrow eyebrow-dark">SINCE 1998</p>
+                <h2 id="about-band-heading" class="about-band-title">
+                    A trusted pantry brand built for everyday families
+                </h2>
+                <p class="about-band-desc">
+                    ABC Foods began as a regional snack business serving independent grocers.
+                    Over 25 years, we've grown into a national brand available in 60,000+
+                    outlets — while staying true to our commitment of quality, flavour, and
+                    affordable nutrition for every household.
+                </p>
+                <a href="/about" class="btn-about">Learn Our Story</a>
+            </div>
+            <div class="about-band-stats">
+                <div class="about-stat">
+                    <span class="about-stat-value">25+</span>
+                    <span class="about-stat-label">Years of Market Presence</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-value">60K+</span>
+                    <span class="about-stat-label">Retail Touchpoints</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-value">400+</span>
+                    <span class="about-stat-label">Distribution Partners</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-value">48</span>
+                    <span class="about-stat-label">Product SKUs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

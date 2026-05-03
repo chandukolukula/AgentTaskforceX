@@ -1,0 +1,239 @@
+<template>
+  <div class="agent-container">
+
+    <!-- ── Header ─────────────────────────────────── -->
+    <div class="agent-header">
+      <div class="header-left">
+        <div class="header-logo">
+          <lightning-icon icon-name="standard:store" size="small"></lightning-icon>
+        </div>
+        <div>
+          <h1 class="header-title">ABC Foods &mdash; Retail Inspection Planner</h1>
+          <p class="header-subtitle">Plan and execute your daily store inspections across your territory</p>
+        </div>
+      </div>
+      <div class="header-date">
+        <lightning-icon icon-name="utility:event" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+        {today}
+      </div>
+    </div>
+
+    <!-- ── Action Bar ──────────────────────────────── -->
+    <div class="action-bar">
+      <div class="action-bar-info">
+        <lightning-icon icon-name="utility:info" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+        Load your assigned stores, view them on the map, and plan your inspection route.
+      </div>
+    </div>
+
+    <!-- ── Loading ─────────────────────────────────── -->
+    <template if:true={isRunning}>
+      <div class="loading-state">
+        <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+        <p class="loading-text">Fetching your inspection stores&hellip;</p>
+      </div>
+    </template>
+
+    <!-- ── Error ───────────────────────────────────── -->
+    <template if:true={errorMessage}>
+      <div class="error-banner" role="alert">
+        <lightning-icon icon-name="utility:error" size="small" class="slds-m-right_small"></lightning-icon>
+        <div>
+          <strong>Something went wrong</strong>
+          <p>{errorMessage}</p>
+        </div>
+      </div>
+    </template>
+
+    <!-- ── Results ─────────────────────────────────── -->
+    <template if:true={hasStores}>
+
+      <!-- KPI Row -->
+      <div class="kpi-row">
+        <div class="kpi-card kpi-blue">
+          <lightning-icon icon-name="standard:store" size="small" class="kpi-icon"></lightning-icon>
+          <div class="kpi-body">
+            <span class="kpi-value">{summary.storeCount}</span>
+            <span class="kpi-label">Stores to Inspect</span>
+          </div>
+        </div>
+        <div class="kpi-card kpi-teal">
+          <lightning-icon icon-name="utility:location" size="small" class="kpi-icon"></lightning-icon>
+          <div class="kpi-body">
+            <span class="kpi-value">{cityName}</span>
+            <span class="kpi-label">Your Territory</span>
+          </div>
+        </div>
+        <div class="kpi-card kpi-green">
+          <lightning-icon icon-name="utility:check" size="small" class="kpi-icon"></lightning-icon>
+          <div class="kpi-body">
+            <span class="kpi-value">0</span>
+            <span class="kpi-label">Inspections Done</span>
+          </div>
+        </div>
+        <div class="kpi-card kpi-orange">
+          <lightning-icon icon-name="utility:clock" size="small" class="kpi-icon"></lightning-icon>
+          <div class="kpi-body">
+            <span class="kpi-value">{summary.storeCount}</span>
+            <span class="kpi-label">Pending</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Route Summary Strip -->
+      <template if:true={hasRoute}>
+        <div class="route-strip">
+          <div class="route-strip-header">
+            <div class="route-strip-left">
+              <lightning-icon icon-name="utility:routing_offline" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+              <span class="route-strip-title">Optimized Visit Route</span>
+              <span class="route-basis-pill">
+                <lightning-icon icon-name="utility:einstein" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                Optimized by Agentforce
+              </span>
+            </div>
+            <button class="open-maps-btn" onclick={handleOptimizeRoute}>
+              <lightning-icon icon-name="utility:new_window" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+              Open in Google Maps
+            </button>
+          </div>
+          <ol class="route-steps">
+            <template for:each={routeSummaryItems} for:item="step">
+              <li key={step.key} class="route-step">
+                <span class="route-step-badge">{step.visitOrder}</span>
+                <div class="route-step-info">
+                  <span class="route-step-name">{step.name}</span>
+                  <span class="route-step-addr">{step.address}</span>
+                </div>
+                <template if:true={step.hasNext}>
+                  <span class="route-step-arrow">&#8250;</span>
+                </template>
+              </li>
+            </template>
+          </ol>
+        </div>
+      </template>
+
+      <!-- Map + Store List -->
+      <div class="layout-container">
+
+        <!-- List Section (top) -->
+        <div class="list-section">
+          <div class="section-header">
+            <lightning-icon icon-name="utility:checklist" size="x-small"></lightning-icon>
+            <span class="section-title">Inspection Checklist</span>
+            <span class="count-pill">{summary.storeCount} stores</span>
+            <div class="legend-row">
+              <span class="legend-item legend-supermarket">Supermarket</span>
+              <span class="legend-item legend-hypermarket">Hypermarket</span>
+              <span class="legend-item legend-discount">Discount</span>
+              <span class="legend-item legend-convenience">Convenience</span>
+            </div>
+            <span class="section-hint">Click a store to locate on map</span>
+          </div>
+
+          <ul class="store-list">
+            <template for:each={storeItems} for:item="store">
+              <li key={store.name} class={store.itemClass} data-name={store.name} onclick={handleListItemClick}>
+                <div class="store-check" data-name={store.name} onclick={handleCheckboxClick}>
+                  <input type="checkbox" class="store-checkbox" checked={store.isChecked} />
+                </div>
+                <div class="store-seq">{store.index}</div>
+                <div class="store-body">
+                  <div class="store-name-row">
+                    <span class="store-name">{store.name}</span>
+                    <template if:true={store.isSelected}>
+                      <span class="viewing-pill">
+                        <lightning-icon icon-name="utility:preview" size="xx-small"></lightning-icon>&nbsp;Viewing
+                      </span>
+                    </template>
+                  </div>
+                  <div class="store-addr">
+                    <lightning-icon icon-name="utility:location" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                    {store.address}
+                  </div>
+                  <div class="store-footer">
+                    <span class={store.categoryClass}>{store.category}</span>
+                    <template if:true={store.phone}>
+                      <span class="store-phone">
+                        <lightning-icon icon-name="utility:call" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                        {store.phone}
+                      </span>
+                    </template>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+
+          <!-- Create Visits Panel -->
+          <template if:true={hasCheckedStores}>
+            <div class="create-visits-panel">
+              <div class="create-visits-left">
+                <div class="create-visits-icon-wrap">
+                  <lightning-icon icon-name="utility:event" size="small"></lightning-icon>
+                </div>
+                <div>
+                  <p class="create-visits-title">Ready to Schedule?</p>
+                  <p class="create-visits-sub">{selectionLabel} — visits will be assigned to you and scheduled for today.</p>
+                </div>
+              </div>
+              <div class="create-visits-actions">
+                <button class="cvp-clear-btn" onclick={handleClearSelection}>Clear Selection</button>
+                <button class="cvp-create-btn" disabled={isCreatingVisits} onclick={handleCreateVisits}>
+                  <lightning-icon icon-name="utility:add" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                  Create Visits
+                </button>
+              </div>
+            </div>
+          </template>
+        </div>
+
+        <!-- Map Section (bottom) -->
+        <div class="map-section">
+          <div class="section-header">
+            <lightning-icon icon-name="utility:map" size="x-small"></lightning-icon>
+            <span class="section-title">Territory Map</span>
+            <span class="count-pill">{summary.storeCount} stores</span>
+            <span class="section-hint">Click a pin to see details</span>
+          </div>
+          <div class="map-container">
+            <lightning-map
+              map-markers={mapMarkers}
+              zoom-level={zoomLevel}
+              list-view="hidden"
+              onmarkerselect={handleMarkerSelect}>
+            </lightning-map>
+          </div>
+        </div>
+
+      </div>
+    </template>
+
+    <!-- ── Empty State ──────────────────────────────── -->
+    <template if:false={hasStores}>
+      <template if:false={isRunning}>
+        <template if:false={errorMessage}>
+          <div class="empty-state">
+            <div class="empty-illustration">
+              <lightning-icon icon-name="standard:store" size="large"></lightning-icon>
+            </div>
+            <h2 class="empty-title">Ready for Inspections?</h2>
+            <p class="empty-body">
+              Click <strong>Plan Inspections</strong> to view all retail stores
+              in your territory, see them pinned on the map, and plan your visit route.
+            </p>
+            <lightning-button
+              variant="brand"
+              label="Plan Inspections"
+              icon-name="utility:refresh"
+              onclick={handleFindStores}>
+            </lightning-button>
+          </div>
+        </template>
+      </template>
+    </template>
+
+
+  </div>
+</template>

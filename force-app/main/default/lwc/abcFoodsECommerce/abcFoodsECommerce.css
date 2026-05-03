@@ -1,0 +1,132 @@
+.commerce-card {
+    background: linear-gradient(180deg, #fffdf8 0%, #fff6e8 100%);
+    border: 1px solid #f0d6b0;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(118, 67, 18, 0.08);
+    color: #3e2a16;
+    padding: 1rem;
+}
+
+.commerce-card__header {
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.commerce-card__eyebrow {
+    color: #a05a18;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.25rem;
+    text-transform: uppercase;
+}
+
+.commerce-card__title {
+    color: #2f2113;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.commerce-card__count {
+    align-items: center;
+    background: #c96c1a;
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    min-height: 2.25rem;
+    min-width: 2.25rem;
+    padding: 0 0.75rem;
+}
+
+.commerce-card__message {
+    color: #5e4731;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    margin: 0 0 1rem;
+}
+
+.product-list {
+    display: grid;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #f1dcc0;
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+}
+
+.product-card__top {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    margin-bottom: 0.45rem;
+}
+
+.product-card__name {
+    color: #2f2113;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.product-card__category {
+    background: #f8dfbe;
+    border-radius: 999px;
+    color: #8b4d13;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+}
+
+.product-card__description {
+    color: #5d4733;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin: 0 0 0.7rem;
+}
+
+.product-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.product-meta-pill {
+    background: #fff5e2;
+    border: 1px solid #efd4af;
+    border-radius: 999px;
+    color: #70461e;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.55rem;
+}
+
+@media (max-width: 480px) {
+    .commerce-card {
+        padding: 0.85rem;
+    }
+
+    .commerce-card__header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .commerce-card__count {
+        align-self: flex-start;
+    }
+}

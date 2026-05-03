@@ -1,0 +1,59 @@
+:host { display: block; width: 100%; min-width: 320px; max-width: 100%; }
+
+.trend-panel { border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+
+/* ── Header ──────────────────────────────────────── */
+.panel-header { background: linear-gradient(135deg, #e8590c 0%, #f28c38 100%); padding: 14px 18px 12px; color: #fff; }
+.header-brand { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.brand-dot    { width: 8px; height: 8px; border-radius: 50%; background: #fff; opacity: 0.85; }
+.brand-name   { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.header-divider { opacity: 0.45; font-size: 12px; }
+.header-label { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.4px; }
+.store-row    { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.store-name   { font-size: 16px; font-weight: 600; color: #fff; }
+.period-badge { font-size: 11px; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.35); border-radius: 12px; padding: 2px 10px; color: #fff; white-space: nowrap; }
+
+/* ── Context message ─────────────────────────────── */
+.context-message { display: flex; align-items: flex-start; gap: 8px; padding: 12px 18px; background: #fef6f0; border-bottom: 1px solid #fde3cc; font-size: 13px; color: #5a3e28; line-height: 1.45; }
+.info-icon { flex-shrink: 0; margin-top: 1px; --lwc-colorTextIconDefault: #e8590c; }
+
+/* ── Brand cards ─────────────────────────────────── */
+.brands-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; padding: 1rem 1.25rem; }
+
+.brand-card {
+    flex: 1;
+    min-width: 110px;
+    background: #f9fbfc;
+    border: 1px solid #e4e4e3;
+    border-radius: 10px;
+    padding: 1rem 0.875rem 0.875rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.2rem;
+    transition: box-shadow 0.15s;
+}
+.brand-card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+
+.brand-initial {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, #e8590c, #f28c38);
+    color: #fff; font-size: 1.1rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.35rem;
+}
+.brand-card-name  { font-size: 0.875rem; font-weight: 600; color: #181818; word-break: break-word; }
+.brand-card-share { font-size: 1.6rem; font-weight: 800; color: #181818; line-height: 1.1; margin-top: 0.25rem; }
+.brand-card-sub   { font-size: 0.68rem; color: #706e6b; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.35rem; }
+
+.brand-trend         { font-size: 0.75rem; font-weight: 700; border-radius: 10px; padding: 0.2rem 0.65rem; white-space: nowrap; }
+.brand-trend--up     { background: #d4efdf; color: #1e7641; }
+.brand-trend--down   { background: #fef1ee; color: #ba0517; }
+.brand-trend--stable { background: #f4f6f9; color: #706e6b; }
+
+/* ── No data ─────────────────────────────────────── */
+.no-data { display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem; text-align: center; gap: 0.4rem; }
+.no-comp-icon  { --lwc-colorTextIconDefault: #2e844a; }
+.no-data-title { font-size: 0.95rem; font-weight: 600; color: #2e844a; margin: 0; }
+.no-data-sub   { font-size: 0.85rem; color: #706e6b; margin: 0; }

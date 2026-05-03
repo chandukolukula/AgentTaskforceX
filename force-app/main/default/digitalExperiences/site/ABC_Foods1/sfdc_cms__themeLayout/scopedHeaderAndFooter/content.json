@@ -1,0 +1,94 @@
+{
+  "type" : "sfdc_cms__themeLayout",
+  "title" : "Scoped Header and Footer",
+  "contentBody" : {
+    "component" : {
+      "attributes" : {
+        "hideThemeFooter" : false,
+        "showThemeFooterAtBottom" : true,
+        "stickyThemeHeader" : false
+      },
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"7b141016-4eb1-4cb6-8d9d-5407d22b9159\",\"columns\":[{\"UUID\":\"6f777090-1b69-4463-8010-616e51a7f8bc\",\"columnName\":\"Column 1\",\"columnKey\":\"headerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:abcFoodsHomeHeader",
+              "id" : "e8f4a621-3c19-4b72-9d05-1a7f3c8e2b94",
+              "type" : "component"
+            } ],
+            "id" : "6f777090-1b69-4463-8010-616e51a7f8bc",
+            "name" : "headerSection",
+            "title" : "Theme Header",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "7b141016-4eb1-4cb6-8d9d-5407d22b9159",
+          "type" : "component"
+        } ],
+        "id" : "a48071d8-6d28-4d12-a088-7110c30963b4",
+        "name" : "header",
+        "title" : "Theme Header",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"bcd3df17-e9c7-4f59-baf8-b9292fd9a4a2\",\"columns\":[{\"UUID\":\"ff0c5299-40a9-4e60-810e-3c16390e28a9\",\"columnName\":\"Column 1\",\"columnKey\":\"footerSection\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:abcFoodsHomeFooter",
+              "id" : "b2d7f395-6a18-4e53-c820-9f4e2a7b1d68",
+              "type" : "component"
+            } ],
+            "id" : "ff0c5299-40a9-4e60-810e-3c16390e28a9",
+            "name" : "footerSection",
+            "title" : "Theme Footer",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "bcd3df17-e9c7-4f59-baf8-b9292fd9a4a2",
+          "type" : "component"
+        } ],
+        "id" : "f14cd152-6d3b-44a9-a5ea-ba4281f9a61e",
+        "name" : "footer",
+        "title" : "Theme Footer",
+        "type" : "region"
+      } ],
+      "definition" : "community_byo:scopedHeaderAndFooter",
+      "id" : "adac9257-5ebd-4959-9718-bab5392e1526",
+      "type" : "component"
+    }
+  },
+  "urlName" : "scoped-header-and-footer"
+}

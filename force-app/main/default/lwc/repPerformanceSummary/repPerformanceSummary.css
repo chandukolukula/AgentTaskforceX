@@ -1,0 +1,55 @@
+:host { display: block; width: 100%; min-width: 320px; max-width: 100%; }
+
+.perf-panel { border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
+
+/* ── Header ──────────────────────────────────────── */
+.panel-header { background: linear-gradient(135deg, #032d60 0%, #0176d3 100%); padding: 14px 18px 12px; color: #fff; }
+.header-brand { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.brand-dot    { width: 8px; height: 8px; border-radius: 50%; background: #fff; opacity: 0.85; }
+.brand-name   { font-size: 12px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+.header-divider { opacity: 0.45; font-size: 12px; }
+.header-label { font-size: 12px; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.4px; }
+.rep-row  { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.rep-name { font-size: 16px; font-weight: 600; color: #fff; }
+.week-badge { font-size: 11px; background: rgba(255,255,255,0.22); border: 1px solid rgba(255,255,255,0.35); border-radius: 12px; padding: 2px 10px; color: #fff; white-space: nowrap; }
+
+/* ── KPI stat pills ──────────────────────────────── */
+.stats-row { display: flex; gap: 0.75rem; padding: 1rem 1.25rem 0.75rem; flex-wrap: wrap; }
+
+.stat-pill {
+    flex: 1; min-width: 90px;
+    background: #f4f6f9; border: 1px solid #e4e4e3; border-radius: 10px;
+    padding: 0.75rem 0.875rem;
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.15rem;
+}
+.stat-pill--green { background: #d4efdf; border-color: #91d6a8; }
+.stat-pill--amber { background: #fff3cd; border-color: #f4bc25; }
+.stat-pill--red   { background: #fef1ee; border-color: #f5a58a; }
+
+.stat-value { font-size: 1.5rem; font-weight: 800; color: #181818; line-height: 1; }
+.stat-label { font-size: 0.68rem; color: #706e6b; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+
+/* ── Store highlight cards ───────────────────────── */
+.store-highlights { padding: 0 1.25rem 0.875rem; display: flex; flex-direction: column; gap: 0.5rem; }
+
+.store-card {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.65rem 0.875rem; border-radius: 8px; border: 1px solid transparent;
+}
+.store-card--best  { background: #f0faf4; border-color: #91d6a8; }
+.store-card--worst { background: #fef8f6; border-color: #f5a58a; }
+
+.best-icon  { flex-shrink: 0; --lwc-colorTextIconDefault: #2e844a; }
+.worst-icon { flex-shrink: 0; --lwc-colorTextIconDefault: #ba0517; }
+
+.store-card-content { flex: 1; min-width: 0; }
+.store-card-label { display: block; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; color: #706e6b; margin-bottom: 0.1rem; }
+.store-card-name  { display: block; font-size: 0.9rem; font-weight: 600; color: #181818; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.store-card-score  { flex-shrink: 0; font-size: 1.25rem; font-weight: 800; }
+.store-score--green { color: #2e844a; }
+.store-score--red   { color: #ba0517; }
+
+/* ── Context message ─────────────────────────────── */
+.context-message { display: flex; align-items: flex-start; gap: 8px; padding: 12px 18px; background: #f0f6fd; border-top: 1px solid #d8e8f7; font-size: 13px; color: #032d60; line-height: 1.45; }
+.info-icon { flex-shrink: 0; margin-top: 1px; --lwc-colorTextIconDefault: #0176d3; }

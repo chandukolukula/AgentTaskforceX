@@ -1,0 +1,5 @@
+{
+  "title" : "Competitor Trend",
+  "description" : "Competitor shelf-share trend analysis for a retail store",
+  "lightning:type" : "@apexClassType/c__CompetitorTrendService$CompetitorTrendResult"
+}

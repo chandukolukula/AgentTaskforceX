@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <providerType>Google</providerType>
+    <friendlyName>Google Vision Auth</friendlyName>
+    <consumerKey>321538714092-pj8sfugkoq13vi2ta4p7iotgand3h3r0.apps.googleusercontent.com</consumerKey>
+    <defaultScopes>openid https://www.googleapis.com/auth/cloud-vision</defaultScopes>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+</AuthProvider>

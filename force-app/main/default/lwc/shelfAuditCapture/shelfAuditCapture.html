@@ -1,0 +1,418 @@
+<template>
+    <div class="audit-capture-modal">
+        <div class="modal-container">
+            <!-- Step 1: Image Capture -->
+            <template if:true={showCapture}>
+                <div class="capture-section">
+                    <template if:true={capturedImageUrl}>
+                        <div class="image-preview-container">
+                            <img src={capturedImageUrl} alt="Shelf Photo" class="shelf-image-preview"/>
+                            <div class="image-overlay-bar">
+                                <span class="img-check">✓ Image Ready</span>
+                                <button class="retake-btn" onclick={handleRetake}>↩ Retake</button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <template if:false={capturedImageUrl}>
+                        <div class="camera-placeholder" onclick={handleCameraCapture}>
+                            <div class="camera-icon">📷</div>
+                            <div class="camera-text">Tap to capture shelf photo</div>
+                            <div class="camera-hint">Point at the full shelf for best results</div>
+                        </div>
+                           <input type="file" accept="image/*"
+                               class="file-input-hidden"
+                               data-id="cameraInput"
+                               onchange={handleImageSelected}/>
+                    </template>
+
+                    <lightning-button
+                        label="🤖 Analyze with AI"
+                        variant="brand"
+                        class="analyze-btn"
+                        disabled={analyzeDisabled}
+                        onclick={handleAnalyze}>
+                    </lightning-button>
+                </div>
+            </template>
+
+            <!-- Step 2: AI Analysis In Progress -->
+            <template if:true={showAnalyzing}>
+                <div class="analyzing-section">
+                    <div class="ai-animation">
+                        <div class="pulse-ring"></div>
+                        <div class="ai-brain">🧠</div>
+                    </div>
+                    <div class="analyzing-title">AI Agent Analyzing...</div>
+                    <div class="analyzing-steps">
+                        <div class={step1Class}>📦 Detecting products on shelf</div>
+                        <div class={step2Class}>📐 Checking planogram compliance</div>
+                        <div class={step3Class}>🔍 Scanning for competitor products</div>
+                        <div class={step4Class}>📋 Generating recommendations</div>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Step 3: Results -->
+            <template if:true={showResults}>
+                <div class="results-section">
+
+                    <!-- Improvement delta card (rescan only) -->
+                    <template if:true={hasDelta}>
+                        <div class={deltaCardClass}>
+                            <div class="delta-before-after">
+                                <span class="delta-before">Before: {parentScoreDisplay}</span>
+                                <span class="delta-arrow">→</span>
+                                <span class="delta-after">After: {auditResult.complianceScore}%</span>
+                            </div>
+                            <div class="delta-value">{deltaLabel}</div>
+                            <template if:true={deltaImproved}>
+                                <div class="delta-subtitle">Great work! Shelf compliance improved ✅</div>
+                            </template>
+                            <template if:true={deltaRegressed}>
+                                <div class="delta-subtitle">Compliance dropped — further action needed ⚠️</div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Score strip (compliance + shelf share side by side) -->
+                    <div class={scoreStripClass}>
+                        <div class="score-block score-block--compliance">
+                            <div class="score-number">{auditResult.complianceScore}%</div>
+                            <div class="score-label">Compliance</div>
+                            <div class="score-status">
+                                <template if:true={isComplianceExcellent}><span>✨ Excellent</span></template>
+                                <template if:true={isComplianceGood}><span>📈 Good</span></template>
+                                <template if:true={isComplianceLow}><span>⚠️ Needs Action</span></template>
+                            </div>
+                        </div>
+                        <div class="score-divider"></div>
+                        <div class="score-block score-block--share">
+                            <div class="score-number score-number--share">{shelfShareLabel}</div>
+                            <div class="score-label">Shelf Share</div>
+                            <div class="score-share-bars">
+                                <div class="mini-bar-row">
+                                    <span class="mini-bar-fill mini-bar-fill--abc" style={shelfShareBarStyle}></span>
+                                    <span class="mini-bar-fill mini-bar-fill--comp" style={compShelfShareBarStyle}></span>
+                                    <span class="mini-bar-fill mini-bar-fill--other" style={otherShelfShareBarStyle}></span>
+                                </div>
+                                <div class="mini-bar-legend">
+                                    <span class="legend-dot legend-dot--abc"></span><span>ABC Foods</span>
+                                    <span class="legend-dot legend-dot--comp"></span><span>Competitors</span>
+                                    <span class="legend-dot legend-dot--other"></span><span>Others</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Count summary pills -->
+                    <div class="count-summary">
+                        <template if:true={hasAbcMatch}>
+                            <span class="count-pill count-pill--found">{abcFoundCount} Found</span>
+                        </template>
+                        <template if:true={hasMissingBrands}>
+                            <span class="count-pill count-pill--missing">{missingCount} Missing</span>
+                        </template>
+                        <template if:true={hasPlacementIssues}>
+                            <span class="count-pill count-pill--warning">{placementCount} Issues</span>
+                        </template>
+                        <template if:true={hasCompetitors}>
+                            <span class="count-pill count-pill--competitor">{competitorCount} Competitors</span>
+                        </template>
+                    </div>
+
+                    <!-- Low Stock banner -->
+                    <template if:true={hasLowStockAlerts}>
+                        <div class="low-stock-banner">
+                            <div class="low-stock-banner__icon">⚠️</div>
+                            <div class="low-stock-banner__body">
+                                <div class="low-stock-banner__title">Low Stock Alert</div>
+                                <ul class="low-stock-list">
+                                    <template for:each={lowStockList} for:item="prod">
+                                        <li key={prod.id} class="low-stock-list__item">
+                                            <span class="low-stock-bullet">•</span>{prod.name}
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- No ABC banner (shown only when nothing found) -->
+                    <template if:false={hasAbcMatch}>
+                        <div class="no-abc-banner">
+                            <div class="no-abc-icon-wrap">
+                                <span class="no-abc-icon">🚫</span>
+                            </div>
+                            <div class="no-abc-body">
+                                <div class="no-abc-title">No ABC Foods Products Detected</div>
+                                <div class="no-abc-subtitle">This shelf image contains no recognisable ABC Foods brands</div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- ABC Foods Found — accordion, open by default -->
+                    <template if:true={hasAbcMatch}>
+                        <div class="accordion-card card-success">
+                            <div class="accordion-header" onclick={toggleAbcFound}>
+                                <span class="card-icon">✅</span>
+                                <span class="card-title">ABC Foods — Found on Shelf</span>
+                                <span class="count-badge count-badge--found">{abcFoundCount}</span>
+                                <span class={abcFoundChevronClass}>›</span>
+                            </div>
+                            <template if:true={abcFoundOpen}>
+                                <div class="accordion-body">
+                                    <ul class="product-list">
+                                        <template for:each={abcFoundList} for:item="prod">
+                                            <li key={prod.id} class="product-list-item product-list-item--found">
+                                                <span class="product-dot product-dot--found"></span>
+                                                {prod.name}
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Missing SKUs — accordion, open by default -->
+                    <template if:true={hasMissingBrands}>
+                        <div class="accordion-card card-missing">
+                            <div class="accordion-header" onclick={toggleMissing}>
+                                <span class="card-icon">❌</span>
+                                <span class="card-title">Missing from Shelf</span>
+                                <span class="count-badge count-badge--missing">{missingCount}</span>
+                                <span class={missingChevronClass}>›</span>
+                            </div>
+                            <template if:true={missingOpen}>
+                                <div class="accordion-body">
+                                    <ul class="product-list">
+                                        <template for:each={abcMissingList} for:item="prod">
+                                            <li key={prod.id} class="product-list-item product-list-item--missing">
+                                                <span class="product-dot product-dot--missing"></span>
+                                                {prod.name}
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Shelf Share — always open, compact -->
+                    <template if:true={showShelfShareAccordion}>
+                        <div class="accordion-card card-metrics">
+                            <div class="accordion-header" onclick={toggleShelfShare}>
+                                <span class="card-icon">📊</span>
+                                <span class="card-title">Shelf Share Comparison</span>
+                                <span class={shelfShareChevronClass}>›</span>
+                            </div>
+                            <template if:true={shelfShareOpen}>
+                                <div class="accordion-body">
+                                    <div class="metric-row">
+                                        <div class="metric-label">
+                                            <span class="metric-brand">ABC Foods</span>
+                                            <span class="metric-pct abc-color">{shelfShareLabel}</span>
+                                        </div>
+                                        <div class="metric-bar">
+                                            <div style={shelfShareBarStyle} class="bar-fill-abc"></div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-row">
+                                        <div class="metric-label">
+                                            <span class="metric-brand">Competitors</span>
+                                            <span class="metric-pct comp-color">{compShelfShareLabel}</span>
+                                        </div>
+                                        <div class="metric-bar">
+                                            <div style={compShelfShareBarStyle} class="bar-fill-comp"></div>
+                                        </div>
+                                    </div>
+                                    <template if:true={hasOtherProducts}>
+                                        <div class="metric-row">
+                                            <div class="metric-label">
+                                                <span class="metric-brand">Other Products</span>
+                                                <span class="metric-pct other-color">{otherShelfShareLabel}</span>
+                                            </div>
+                                            <div class="metric-bar">
+                                                <div style={otherShelfShareBarStyle} class="bar-fill-other"></div>
+                                            </div>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Placement Issues — accordion, collapsed by default -->
+                    <template if:true={hasPlacementIssues}>
+                        <div class="accordion-card card-placement-warning">
+                            <div class="accordion-header" onclick={togglePlacement}>
+                                <span class="card-icon">⚠️</span>
+                                <span class="card-title">Placement Issues</span>
+                                <span class="count-badge count-badge--warning">{placementCount}</span>
+                                <span class={placementChevronClass}>›</span>
+                            </div>
+                            <template if:true={placementOpen}>
+                                <div class="accordion-body">
+                                    <ul class="product-list">
+                                        <template for:each={placementIssuesList} for:item="prod">
+                                            <li key={prod.id} class="product-list-item product-list-item--warning">
+                                                <span class="product-dot product-dot--warning"></span>
+                                                {prod.name}
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Competitor Products — accordion, collapsed by default -->
+                    <template if:true={hasCompetitors}>
+                        <div class="accordion-card card-competitor">
+                            <div class="accordion-header" onclick={toggleCompetitor}>
+                                <span class="card-icon">🔍</span>
+                                <span class="card-title">Competitor Products</span>
+                                <span class="count-badge count-badge--competitor">{competitorCount}</span>
+                                <span class={competitorChevronClass}>›</span>
+                            </div>
+                            <template if:true={competitorOpen}>
+                                <div class="accordion-body">
+                                    <ul class="product-list">
+                                        <template for:each={competitorList} for:item="prod">
+                                            <li key={prod.id} class="product-list-item product-list-item--competitor">
+                                                <span class="product-dot product-dot--competitor"></span>
+                                                {prod.name}
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Other Products — accordion, collapsed by default -->
+                    <template if:true={hasOtherProducts}>
+                        <div class="accordion-card card-other">
+                            <div class="accordion-header" onclick={toggleOther}>
+                                <span class="card-icon">🛒</span>
+                                <span class="card-title">Other Products on Shelf</span>
+                                <span class="count-badge count-badge--other">{otherCount}</span>
+                                <span class={otherChevronClass}>›</span>
+                            </div>
+                            <template if:true={otherOpen}>
+                                <div class="accordion-body">
+                                    <ul class="product-list">
+                                        <template for:each={otherProductsList} for:item="prod">
+                                            <li key={prod.id} class="product-list-item product-list-item--other">
+                                                <span class="product-dot product-dot--other"></span>
+                                                {prod.name}
+                                            </li>
+                                        </template>
+                                    </ul>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <!-- Re-Scan prompt (only on first scan, not on a rescan) -->
+                    <template if:true={showReScanButton}>
+                        <div class="rescan-prompt" onclick={handleRescan}>
+                            <div class="rescan-prompt-icon">📷</div>
+                            <div class="rescan-prompt-body">
+                                <div class="rescan-prompt-title">Fixed the shelf?</div>
+                                <div class="rescan-prompt-sub">Re-scan to measure your improvement</div>
+                            </div>
+                            <span class="rescan-prompt-arrow">›</span>
+                        </div>
+                    </template>
+
+                </div>
+
+                <!-- Sticky action bar -->
+                <div class="action-bar">
+                    <lightning-button label="📱 Send Report" variant="success" onclick={handleOpenWhatsApp} class="btn-action"></lightning-button>
+                </div>
+            </template>
+
+            <!-- Error State -->
+            <template if:true={showError}>
+                <div class="error-section">
+                    <div class="error-icon">❌</div>
+                    <div class="error-msg">{errorMessage}</div>
+                    <lightning-button label="Try Again" variant="brand" onclick={handleRetry}></lightning-button>
+                </div>
+            </template>
+        </div>
+
+        <!-- WhatsApp Send Report Overlay -->
+        <template if:true={showWhatsAppModal}>
+            <div class="wa-overlay">
+                <div class="wa-modal">
+
+                    <!-- Header -->
+                    <div class="wa-modal-header">
+                        <span>📱 Send WhatsApp Report</span>
+                        <button class="wa-close-btn" onclick={handleCloseWhatsApp}>✕</button>
+                    </div>
+
+                    <!-- Body -->
+                    <div class="wa-modal-body">
+
+                        <!-- Success state -->
+                        <template if:true={whatsAppSent}>
+                            <div class="wa-success">
+                                <div class="wa-success-icon">✅</div>
+                                <div class="wa-success-title">Report Sent!</div>
+                                <div class="wa-success-sub">WhatsApp message delivered to {whatsAppPhone}</div>
+                            </div>
+                        </template>
+
+                        <!-- Form state -->
+                        <template if:false={whatsAppSent}>
+                            <div class="wa-phone-section">
+                                <label class="wa-label">WhatsApp Number</label>
+                                <input type="tel"
+                                       class="wa-phone-input"
+                                       placeholder="+1 415 555 2671"
+                                       value={whatsAppPhone}
+                                       onchange={handlePhoneChange} />
+                            </div>
+
+                            <div class="wa-preview-label">Message Preview</div>
+                            <div class="wa-preview-box">
+                                <template if:true={whatsAppLoading}>
+                                    <div class="wa-loading">Loading preview...</div>
+                                </template>
+                                <template if:false={whatsAppLoading}>
+                                    {whatsAppPreview}
+                                </template>
+                            </div>
+
+                            <template if:true={whatsAppError}>
+                                <div class="wa-error">{whatsAppError}</div>
+                            </template>
+                        </template>
+
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="wa-modal-footer">
+                        <template if:true={whatsAppSent}>
+                            <button class="wa-btn wa-btn-close" onclick={handleCloseWhatsApp}>Close</button>
+                        </template>
+                        <template if:false={whatsAppSent}>
+                            <button class="wa-btn wa-btn-cancel" onclick={handleCloseWhatsApp}>Cancel</button>
+                            <button class="wa-btn wa-btn-send" onclick={handleSendWhatsApp} disabled={sendDisabled}>
+                                <template if:true={whatsAppSending}>Sending...</template>
+                                <template if:false={whatsAppSending}>Send Report 📤</template>
+                            </button>
+                        </template>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+
+    </div>
+</template>

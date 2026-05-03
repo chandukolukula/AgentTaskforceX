@@ -1,0 +1,78 @@
+<template>
+    <header class={headerClass}>
+        <div class="nav-bar">
+            <div class="nav-inner">
+                <!-- Brand Logo -->
+                <button class="brand-btn" onclick={navigateHome} aria-label="ABC Foods home">
+                    <template if:false={showFallbackLogo}>
+                        <img
+                            class="brand-logo"
+                            src={logoUrl}
+                            alt="ABC Foods"
+                            onerror={handleLogoError}
+                        />
+                    </template>
+                    <template if:true={showFallbackLogo}>
+                        <span class="fallback-logo">ABC FOODS</span>
+                    </template>
+                </button>
+
+                <!-- Primary Navigation -->
+                <nav class="primary-nav" aria-label="Primary navigation">
+                    <ul class="nav-list">
+                        <li>
+                            <button class="nav-link" data-page="home" onclick={navigateTo}>Home</button>
+                        </li>
+                        <li>
+                            <button class="nav-link" data-page="products" onclick={navigateTo}>Products</button>
+                        </li>
+                        <li>
+                            <button class="nav-link" data-page="about" onclick={navigateTo}>About Us</button>
+                        </li>
+                        <li>
+                            <button class="nav-link" data-page="careers" onclick={navigateTo}>Careers</button>
+                        </li>
+                        <li>
+                            <button class="nav-link nav-link-cta" data-page="contact" onclick={navigateTo}>Contact Us</button>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Mobile menu toggle -->
+                <button
+                    class={mobileMenuBtnClass}
+                    aria-label="Toggle navigation"
+                    aria-expanded={menuOpen}
+                    onclick={toggleMenu}
+                >
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile nav drawer -->
+        <template if:true={menuOpen}>
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <ul class="mobile-nav-list">
+                    <li>
+                        <button class="mobile-nav-link" data-page="home" onclick={navigateTo}>Home</button>
+                    </li>
+                    <li>
+                        <button class="mobile-nav-link" data-page="products" onclick={navigateTo}>Products</button>
+                    </li>
+                    <li>
+                        <button class="mobile-nav-link" data-page="about" onclick={navigateTo}>About Us</button>
+                    </li>
+                    <li>
+                        <button class="mobile-nav-link" data-page="careers" onclick={navigateTo}>Careers</button>
+                    </li>
+                    <li>
+                        <button class="mobile-nav-link mobile-nav-cta" data-page="contact" onclick={navigateTo}>Contact Us</button>
+                    </li>
+                </ul>
+            </nav>
+        </template>
+    </header>
+</template>

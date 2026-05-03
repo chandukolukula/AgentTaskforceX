@@ -1,0 +1,381 @@
+/* ── Rep Dashboard ───────────────────────────────── */
+.rep-dashboard {
+    font-family: 'Salesforce Sans', Arial, sans-serif;
+    background: #f4f6f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+/* ── Header ──────────────────────────────────────── */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #032d60 0%, #0176d3 100%);
+    padding: 1.25rem 1.5rem;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+}
+
+.header-logo {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.18);
+    border-radius: 10px;
+    padding: 0.55rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.greeting-text {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0 0 0.1rem 0;
+}
+
+.rep-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.header-date {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 0.35rem 0.85rem;
+    white-space: nowrap;
+}
+
+/* ── KPI Grid ────────────────────────────────────── */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem 0.5rem;
+}
+
+.kpi-card {
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 1rem 1rem 0.875rem;
+    border: 1px solid #e4e4e3;
+    border-left: 4px solid transparent;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.kpi-visits { border-left-color: #0176d3; }
+.kpi-tasks  { border-left-color: #7f6fb7; }
+
+.kpi-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+    font-size: 0.775rem;
+    color: #706e6b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+.kpi-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #181818;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-denom {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #aaa;
+}
+
+.kpi-progress-track {
+    height: 5px;
+    background: #e4e4e3;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.4rem;
+}
+
+.kpi-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0176d3, #1b96ff);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+
+.kpi-trend {
+    font-size: 0.775rem;
+    color: #706e6b;
+}
+
+.critical-pill {
+    background: #fef1ee;
+    color: #ba0517;
+    border-radius: 10px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ── Section Cards ───────────────────────────────── */
+.section-card {
+    background: #fff;
+    margin: 0.75rem 1.25rem 0;
+    border-radius: 8px;
+    border: 1px solid #e4e4e3;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 0.875rem;
+    border-bottom: 1px solid #e4e4e3;
+    background: #f4f6f9;
+}
+
+.section-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.section-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #3e3e3c;
+}
+
+.count-pill {
+    font-size: 0.775rem;
+    background: #0176d3;
+    color: #fff;
+    border-radius: 10px;
+    padding: 0.1rem 0.5rem;
+    font-weight: 600;
+}
+
+/* ── Visit Cards ─────────────────────────────────── */
+.visit-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f4f6f9;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.visit-card:last-child { border-bottom: none; }
+.visit-card:hover      { background: #f9fbfc; }
+
+.visit-completed {
+    opacity: 0.55;
+}
+
+.visit-seq {
+    flex-shrink: 0;
+    width: 1.875rem;
+    height: 1.875rem;
+    background: linear-gradient(135deg, #032d60, #0176d3);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.725rem;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(1,118,211,0.3);
+}
+
+.visit-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.visit-store-name {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: #181818;
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.visit-meta {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #706e6b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.meta-sep {
+    margin: 0 0.35rem;
+    opacity: 0.5;
+}
+
+/* ── Status Badges ───────────────────────────────── */
+.status-badge {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+}
+
+.status-completed   { background: #d4efdf; color: #1e7641; }
+.status-planned     { background: #dce9f9; color: #0059a9; }
+.status-inprogress,
+.status-in-progress { background: #fff3cd; color: #856404; }
+
+/* ── Recommendations ─────────────────────────────── */
+.rec-row {
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid #f4f6f9;
+    gap: 0.65rem;
+    cursor: pointer;
+    transition: background 0.12s;
+}
+
+.rec-row:last-child { border-bottom: none; }
+.rec-row:hover      { background: #f9fbfc; }
+
+.priority-dot  { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.dot-critical  { background: #ba0517; }
+.dot-high      { background: #e07000; }
+.dot-medium    { background: #f4bc25; }
+.dot-low       { background: #2e844a; }
+
+.rec-content { flex: 1; min-width: 0; }
+.rec-store   { font-size: 0.75rem; color: #706e6b; margin-bottom: 0.15rem; }
+.rec-text    { font-size: 0.875rem; color: #181818; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.rec-category {
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    background: #f4f6f9;
+    color: #3e3e3c;
+    padding: 0.15rem 0.5rem;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* ── Empty & Loading ─────────────────────────────── */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+}
+
+.empty-icon  { opacity: 0.35; margin-bottom: 0.75rem; }
+.empty-title { font-size: 0.95rem; font-weight: 600; color: #3e3e3c; margin: 0 0 0.25rem 0; }
+.empty-sub   { font-size: 0.85rem; color: #706e6b; margin: 0; }
+
+.loading-spinner { display: flex; justify-content: center; padding: 1.5rem; }
+
+/* ── Compliance Sparkline ────────────────────────── */
+.sparkline-body {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem 0.625rem;
+    gap: 1.25rem;
+}
+
+.sparkline-chart {
+    flex: 1;
+    max-width: 440px;
+    min-width: 140px;
+}
+
+.sparkline-svg {
+    width: 100%;
+    height: 82px;
+    display: block;
+    overflow: visible;
+}
+
+.sparkline-stats {
+    display: flex;
+    gap: 1.25rem;
+    flex-shrink: 0;
+}
+
+.trend-kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 2.75rem;
+}
+
+.trend-kpi-label {
+    font-size: 0.68rem;
+    color: #706e6b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+
+.trend-kpi-val {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #181818;
+    line-height: 1;
+}
+
+.trend-kpi-green { color: #2e844a; }
+.trend-kpi-red   { color: #ba0517; }
+
+.trend-avg-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 0.15rem 0.65rem;
+    white-space: nowrap;
+}
+
+.trend-avg--green { background: #d4efdf; color: #1e7641; }
+.trend-avg--amber { background: #fff3cd; color: #856404; }
+.trend-avg--red   { background: #fef1ee; color: #ba0517; }

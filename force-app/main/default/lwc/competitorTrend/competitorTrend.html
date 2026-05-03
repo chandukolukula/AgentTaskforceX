@@ -1,0 +1,53 @@
+<template>
+    <div class="trend-panel">
+
+        <!-- ── Header ─────────────────────────────────────── -->
+        <div class="panel-header">
+            <div class="header-brand">
+                <span class="brand-dot"></span>
+                <span class="brand-name">ABC Foods</span>
+                <span class="header-divider">|</span>
+                <span class="header-label">Competitor Intelligence</span>
+            </div>
+            <template if:true={storeName}>
+                <div class="store-row">
+                    <span class="store-name">{storeName}</span>
+                    <span class="period-badge">Last {periodDays} days</span>
+                </div>
+            </template>
+        </div>
+
+        <!-- ── Context message ────────────────────────────── -->
+        <template if:true={displayMessage}>
+            <div class="context-message">
+                <lightning-icon icon-name="utility:info_alt" size="x-small" class="info-icon"></lightning-icon>
+                <span>{displayMessage}</span>
+            </div>
+        </template>
+
+        <!-- ── Brand cards ────────────────────────────────── -->
+        <template if:true={hasBrands}>
+            <div class="brands-grid">
+                <template for:each={brands} for:item="b">
+                    <div key={b.id} class="brand-card">
+                        <div class="brand-initial">{b.initial}</div>
+                        <div class="brand-card-name">{b.name}</div>
+                        <div class="brand-card-share">{b.shareLabel}</div>
+                        <div class="brand-card-sub">shelf share</div>
+                        <div class={b.trendClass}>{b.trendText}</div>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <!-- ── No competitor state ────────────────────────── -->
+        <template if:false={hasBrands}>
+            <div class="no-data">
+                <lightning-icon icon-name="utility:check" size="small" class="no-comp-icon"></lightning-icon>
+                <p class="no-data-title">No competitors detected</p>
+                <p class="no-data-sub">No rival products were recorded at this store recently.</p>
+            </div>
+        </template>
+
+    </div>
+</template>

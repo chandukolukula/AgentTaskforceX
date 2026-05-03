@@ -1,0 +1,131 @@
+<template>
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Careers page banner">
+        <div class="page-hero-inner">
+            <p class="eyebrow">JOIN OUR TEAM</p>
+            <h1 class="page-title">Careers at ABC Foods</h1>
+            <p class="page-subtitle">
+                Build a meaningful career with a brand that feeds millions of families.
+                We're growing fast and looking for passionate people to grow with us.
+            </p>
+            <a href="#open-roles" class="btn-hero">View Open Roles</a>
+        </div>
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,30 Q300,60 600,30 Q900,0 1200,30 L1200,60 L0,60 Z" fill="#FFFDF8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Why Join Us -->
+    <section class="benefits-section" aria-labelledby="benefits-heading">
+        <div class="content-shell">
+            <header class="section-header">
+                <p class="section-eyebrow">WHY ABC FOODS</p>
+                <h2 id="benefits-heading" class="section-title">More than a job. A place to grow.</h2>
+                <p class="section-desc">
+                    We invest in our people the same way we invest in our products — with care,
+                    consistency, and a long-term view.
+                </p>
+            </header>
+            <div class="benefits-grid">
+                <template for:each={benefits} for:item="b">
+                    <div key={b.title} class="benefit-card">
+                        <span class="benefit-icon" aria-hidden="true">{b.icon}</span>
+                        <h3 class="benefit-title">{b.title}</h3>
+                        <p class="benefit-desc">{b.desc}</p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Band -->
+    <section class="culture-band" aria-label="Culture highlights">
+        <div class="culture-inner">
+            <template for:each={cultureStats} for:item="s">
+                <div key={s.label} class="culture-stat">
+                    <span class="culture-value">{s.value}</span>
+                    <span class="culture-label">{s.label}</span>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- Open Roles -->
+    <section id="open-roles" class="roles-section" aria-labelledby="roles-heading">
+        <div class="content-shell">
+            <header class="section-header">
+                <p class="section-eyebrow">OPEN POSITIONS</p>
+                <h2 id="roles-heading" class="section-title">Current Opportunities</h2>
+            </header>
+
+            <div class="roles-list">
+                <template for:each={openRoles} for:item="role">
+                    <article key={role.id} class="role-card">
+                        <div class="role-main">
+                            <div>
+                                <h3 class="role-title">{role.title}</h3>
+                                <p class="role-meta">
+                                    <span class="role-dept">{role.department}</span>
+                                    <span class="role-divider" aria-hidden="true">·</span>
+                                    <span>{role.location}</span>
+                                    <span class="role-divider" aria-hidden="true">·</span>
+                                    <span>{role.type}</span>
+                                </p>
+                                <p class="role-desc">{role.desc}</p>
+                            </div>
+                            <a href="#apply" class="btn-apply" data-role={role.title} onclick={handleApply}>
+                                Apply Now
+                            </a>
+                        </div>
+                        <div class="role-tags">
+                            <template for:each={role.tags} for:item="tag">
+                                <span key={tag} class="role-tag">{tag}</span>
+                            </template>
+                        </div>
+                    </article>
+                </template>
+            </div>
+
+            <!-- No roles fallback (won't show since we have roles, but good practice) -->
+        </div>
+    </section>
+
+    <!-- Apply CTA Band -->
+    <section class="apply-band" aria-label="Application CTA">
+        <div class="apply-inner">
+            <h2 class="apply-title">Don't see the right role?</h2>
+            <p class="apply-desc">
+                We're always on the lookout for talented people. Send us your CV and
+                we'll keep you in mind when the right opportunity comes up.
+            </p>
+            <a href="mailto:careers@abcfoods.in" class="btn-speculative">
+                Send Speculative Application
+            </a>
+        </div>
+    </section>
+
+    <!-- Apply Modal (shown after clicking Apply) -->
+    <template if:true={showApplyModal}>
+        <div class="modal-backdrop" role="dialog" aria-modal="true" aria-label="Apply for role">
+            <div class="modal-box">
+                <button class="modal-close" onclick={closeModal} aria-label="Close">✕</button>
+                <h2 class="modal-title">Apply: {selectedRole}</h2>
+                <p class="modal-intro">
+                    Email your CV and cover letter to <strong>careers@abcfoods.in</strong> with
+                    the subject line: <em>Application – {selectedRole}</em>.
+                </p>
+                <p class="modal-note">
+                    Our recruitment team will contact shortlisted candidates within 7–10 business days.
+                </p>
+                <a
+                    href={applyEmailHref}
+                    class="btn-submit-modal"
+                >
+                    Open Email Client
+                </a>
+            </div>
+        </div>
+    </template>
+</template>

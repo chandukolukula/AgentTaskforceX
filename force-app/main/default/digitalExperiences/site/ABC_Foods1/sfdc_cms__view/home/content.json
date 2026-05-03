@@ -1,0 +1,88 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Home",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "dxpStyle" : { },
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"3d6b7632-bf8b-4110-963c-77c7de4db0cf\",\"columns\":[{\"UUID\":\"4a4455d7-cc39-4592-846f-e182e96baf15\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":null}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : {
+                "clientVersion" : "WebV1",
+                "deploymentName" : "ABC_Channel",
+                "hideChatButtonOnLoad" : "Default",
+                "isExpSiteAuthMode" : false,
+                "scrtUrl" : "https://orgfarm-01bbee7f03.my.salesforce-scrt.com",
+                "siteEndpoint" : "https://orgfarm-01bbee7f03.my.site.com/ESWABCChannel1777478170189"
+              },
+              "definition" : "experience_messaging:embeddedMessaging",
+              "id" : "6163d291-4a20-4922-8c4e-5d02f351ea6a",
+              "type" : "component"
+            }, {
+              "attributes" : { },
+              "definition" : "c:abcFoodsHomeHero",
+              "id" : "30df5334-3769-47db-8f6d-1b02d3b805b5",
+              "type" : "component"
+            }, {
+              "attributes" : {
+                "dxpStyle" : { }
+              },
+              "definition" : "c:abcFoodsHomeBody",
+              "id" : "7c3e9d12-a845-4f28-b601-2e9f8a14c037",
+              "type" : "component"
+            } ],
+            "id" : "4a4455d7-cc39-4592-846f-e182e96baf15",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "3d6b7632-bf8b-4110-963c-77c7de4db0cf",
+          "type" : "component"
+        } ],
+        "id" : "38615cb0-7f67-487e-bd8a-11fb013425fe",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "ABC Foods - Premium snacks crafted with quality ingredients for every occasion.",
+            "dxpStyle" : { },
+            "pageTitle" : "Home | ABC Foods",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "0f90e3e5-3622-4805-b92c-43b9487aa7ff",
+          "type" : "component"
+        } ],
+        "id" : "e580f09c-933d-45d3-9f8e-7c8c4a58d4bf",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "0c952a1e-546b-488c-ae30-bc3d3c3f11b5",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "home"
+  },
+  "urlName" : "home"
+}

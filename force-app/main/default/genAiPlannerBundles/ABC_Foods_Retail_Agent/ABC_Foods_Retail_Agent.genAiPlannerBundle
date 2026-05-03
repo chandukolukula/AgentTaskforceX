@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>Automate common business tasks and assist users in their flow of work. ABC Foods Retail Agent can search knowledge articles and other data sources. AI agent for retail reps to plan inspections, view store info, and manage visits</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jbm000001SeRl</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Conduct_Shelf_Audit_16jbm000001SeRl</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>GeneralFAQ_16jbm000001SeRl</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Get_Product_Information_16jbm000001SeRl</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Get_Product_Information_16jbm000001SeRl</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Utterance 1</masterLabel>
+            <utterance>Give me details about Nachos</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Product information retrieval and search functionality for ABC Foods e-commerce catalog</description>
+        <developerName>Get_Product_Information_16jbm000001SeRl</developerName>
+        <genAiPluginInstructions>
+            <description>When a customer asks about products, call the action Get_Product_Information_179bm000002f1On</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Product_Information_179bm000002f1On</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Product_Information_179bm000002f1On</fullName>
+            <description>Returns product details for ABC Foods products</description>
+            <developerName>Get_Product_Information_179bm000002f1On</developerName>
+            <invocationTarget>ProductInfoService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Product_Information</localDeveloperName>
+            <masterLabel>Get Product Information</masterLabel>
+        </localActions>
+        <localDeveloperName>Get_Product_Information</localDeveloperName>
+        <masterLabel>Get Product Information</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Search and retrieve ABC Foods product information including names, descriptions, categories (Cookies &amp; Biscuits, Confectionery, Health Bars, Premium Range, Kids Range, Salty Snacks, Sweet Snacks). Use this action when customers ask about products, product availability, product categories, or specific product details.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Conduct_Shelf_Audit_16jbm000001SeRl</fullName>
+        <aiPluginUtterances>
+            <developerName>utterance_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Utterance 1</masterLabel>
+            <utterance>I want to audit the shelf at this store</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_2</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Utterance 2</masterLabel>
+            <utterance>Run a shelf audit for my current visit</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_3</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Utterance 3</masterLabel>
+            <utterance>Check planogram compliance at Store A</utterance>
+        </aiPluginUtterances>
+        <aiPluginUtterances>
+            <developerName>utterance_4</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Utterance 4</masterLabel>
+            <utterance>Analyze the shelf photo</utterance>
+        </aiPluginUtterances>
+        <canEscalate>false</canEscalate>
+        <description>Analyzes a shelf image for planogram compliance, detects missing SKUs, identifies competitor products, and generates prioritized recommendations.</description>
+        <developerName>Conduct_Shelf_Audit_16jbm000001SeRl</developerName>
+        <genAiPluginInstructions>
+            <description>When the rep asks for conducting shelf audit capture, call the action  Conduct_Shelf_Audit_via_Agentforce_179bm000002e6vB</description>
+            <developerName>instructions_0_1777534860049</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777534860049</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Pass the visit id from the record page to the Conduct_Shelf_Audit_via_Agentforce_179bm000002e6vB action</description>
+            <developerName>instructions_0_1777540024295</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777540024295</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Call &apos;Get_Competitor_Trend_179bm000002e6vB&apos; action when the rep asks about competitor brands, shelf share, or competitor presence at a store. If on a store record page, pass the record ID as storeId. If the rep names a store in conversation, pass that name as storeName.</description>
+            <developerName>instructions_0_1777654468147</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777654468147</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Call &apos;Get_Rep_Performance_Summary_179bm000002e6vB&apos; when the rep asks about their own performance, weekly stats, compliance scores, or how many stores they&apos;ve audited. No input needed — it uses the current user automatically.</description>
+            <developerName>instructions_1_1777654468147</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_1_1777654468147</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Conduct_Shelf_Audit_via_Agentforce_179bm000002e6vB</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Competitor_Trend_179bm000002e6vB</functionName>
+        </localActionLinks>
+        <localActionLinks>
+            <functionName>Get_Rep_Performance_Summary_179bm000002e6vB</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Competitor_Trend_179bm000002e6vB</fullName>
+            <description>Returns competitor shelf-share trends for a retail store. Provide storeId when on a store record page, or storeName when the rep mentions a store by name in conversation.</description>
+            <developerName>Get_Competitor_Trend_179bm000002e6vB</developerName>
+            <invocationTarget>CompetitorTrendService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Competitor_Trend</localDeveloperName>
+            <masterLabel>Get Competitor Trend</masterLabel>
+            <progressIndicatorMessage>Processing....</progressIndicatorMessage>
+            <source>Get_Competitor_Trend</source>
+        </localActions>
+        <localActions>
+            <fullName>Get_Rep_Performance_Summary_179bm000002e6vB</fullName>
+            <description>Returns the field rep&apos;s weekly audit performance summary: stores visited, average compliance score, and best/worst store. Use when the rep asks &quot;how am I doing?&quot; or requests a performance update.</description>
+            <developerName>Get_Rep_Performance_Summary_179bm000002e6vB</developerName>
+            <invocationTarget>RepPerformanceSummaryService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Rep_Performance_Summary</localDeveloperName>
+            <masterLabel>Get Rep Performance Summary</masterLabel>
+            <progressIndicatorMessage>Processing...</progressIndicatorMessage>
+            <source>Get_Rep_Performance_Summary</source>
+        </localActions>
+        <localActions>
+            <fullName>Conduct_Shelf_Audit_via_Agentforce_179bm000002e6vB</fullName>
+            <description>Conducts a shelf audit by analyzing shelf images for planogram compliance, detects missing SKUs, identifies competitor products, and returns structured audit results with compliance scores and recommendations.</description>
+            <developerName>Conduct_Shelf_Audit_via_Agentforce_179bm000002e6vB</developerName>
+            <invocationTarget>ShelfAuditCaptureAgentActions</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Conduct_Shelf_Audit_via_Agentforce</localDeveloperName>
+            <masterLabel>Conduct Shelf Audit via Agentforce</masterLabel>
+        </localActions>
+        <localDeveloperName>Conduct_Shelf_Audit</localDeveloperName>
+        <masterLabel>Conduct Shelf Audit</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>When the rep mentions auditing a shelf, capturing shelf compliance, analyzing a shelf photo, checking product placement, or detecting missing SKUs or competitor products at a store.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>GeneralFAQ_16jbm000001SeRl</fullName>
+        <canEscalate>false</canEscalate>
+        <description>This topic is for helping answer customer&apos;s questions by searching through the knowledge articles and providing information from those articles. The questions can be about the company and its products, policies or business procedures</description>
+        <developerName>GeneralFAQ_16jbm000001SeRl</developerName>
+        <genAiPluginInstructions>
+            <description>If the customer&apos;s question is too vague or general, ask for more details and clarification to give a better answer.</description>
+            <developerName>requestmoredetails</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>request-more-details</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If you are unable to help the customer even after asking clarifying questions, ask if they want to escalate this issue to a live agent.</description>
+            <developerName>unabletohelpafterclarifying</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>unable-to-help-after-clarifying</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>If you are unable to answer customer&apos;s questions, ask if they want to escalate this issue to a live agent.</description>
+            <developerName>unabletoanswerquestions</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>unable-to-answer-questions</masterLabel>
+            <sortOrder>2</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Never provide generic information, advice or troubleshooting steps, unless retrieved from searching knowledge articles.</description>
+            <developerName>avoidgenericinformation</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>avoid-generic-information</masterLabel>
+            <sortOrder>3</sortOrder>
+        </genAiPluginInstructions>
+        <genAiPluginInstructions>
+            <description>Include sources in your response when available from the knowledge articles, otherwise proceed without them.</description>
+            <developerName>includearticlesources</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>include-article-sources</masterLabel>
+            <sortOrder>4</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>AnswerQuestionsWithKnowledge_179bm000002cO1l</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>AnswerQuestionsWithKnowledge_179bm000002cO1l</fullName>
+            <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+            <developerName>AnswerQuestionsWithKnowledge_179bm000002cO1l</developerName>
+            <invocationTarget>streamKnowledgeSearch</invocationTarget>
+            <invocationTargetType>standardInvocableAction</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+            <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+            <masterLabel>Answer Questions with Knowledge</masterLabel>
+            <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+            <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+        </localActions>
+        <localDeveloperName>GeneralFAQ</localDeveloperName>
+        <masterLabel>General FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Your job is solely to help with issues and answer questions about the company, its products, procedures, or policies by searching knowledge articles.</scope>
+        <source>SvcCopilotTmpl__GeneralFAQ</source>
+    </localTopics>
+    <masterLabel>ABC Foods Retail Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jbm000001SeRl</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jbm000001SeRl</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+</GenAiPlannerBundle>

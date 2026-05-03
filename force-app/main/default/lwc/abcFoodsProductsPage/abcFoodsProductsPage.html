@@ -1,0 +1,96 @@
+<template>
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Products page banner">
+        <div class="page-hero-inner">
+            <p class="eyebrow">WHAT WE MAKE</p>
+            <h1 class="page-title">Our Products</h1>
+            <p class="page-subtitle">
+                48 hand-crafted products across 7 categories — from bold salty snacks
+                to sweet treats, premium gifts, and health-conscious choices.
+            </p>
+        </div>
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,30 Q300,60 600,30 Q900,0 1200,30 L1200,60 L0,60 Z" fill="#FFFDF8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" aria-labelledby="products-heading">
+        <div class="section-inner">
+
+            <!-- Filter Tabs -->
+            <div class="filter-row" role="tablist" aria-label="Filter by category">
+                <button
+                    class={allBtnClass}
+                    role="tab"
+                    aria-selected={isAllSelected}
+                    data-category="all"
+                    onclick={handleFilter}
+                >
+                    All
+                    <span class="filter-count">{totalCount}</span>
+                </button>
+                <template for:each={categoryFilters} for:item="cat">
+                    <button
+                        key={cat.value}
+                        class={cat.btnClass}
+                        role="tab"
+                        aria-selected={cat.isActive}
+                        data-category={cat.value}
+                        onclick={handleFilter}
+                    >
+                        <span class="filter-icon" aria-hidden="true">{cat.icon}</span>
+                        {cat.short}
+                        <span class="filter-count">{cat.count}</span>
+                    </button>
+                </template>
+            </div>
+
+            <!-- Results meta -->
+            <div class="results-meta">
+                <span>
+                    Showing {filteredCount} of {totalCount} products
+                    <template if:false={isAllSelected}>
+                        in <strong>{selectedCategory}</strong>
+                    </template>
+                </span>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" aria-live="polite">
+                <template for:each={displayedProducts} for:item="product">
+                    <article class="product-card" key={product.id} aria-label={product.name}>
+                        <div class="card-image-area">
+                            <img
+                                class="card-image"
+                                src={product.imageUrl}
+                                alt={product.name}
+                                loading="lazy"
+                                onerror={handleImgError}
+                            />
+                            <span class="card-cat-badge" style={product.badgeStyle}>
+                                {product.categoryShort}
+                            </span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-name">{product.name}</h3>
+                            <p class="card-desc">{product.description}</p>
+                        </div>
+                    </article>
+                </template>
+            </div>
+
+            <!-- Load More -->
+            <template if:true={hasMore}>
+                <div class="load-more-row">
+                    <button class="btn-load-more" onclick={handleLoadMore} type="button">
+                        Show More ({remainingCount} remaining)
+                    </button>
+                </div>
+            </template>
+
+        </div>
+    </section>
+</template>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#8B1700"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="300" height="400" fill="url(#bg)"/>
+  <!-- Shine -->
+  <ellipse cx="125" cy="80" rx="210" ry="110" fill="url(#shine)"/>
+  <!-- Rainbow arc -->
+  <path d="M30,220 Q150,80 270,220" stroke="#FF0000" stroke-width="10" fill="none" opacity="0.25"/>
+  <path d="M40,225 Q150,95 260,225" stroke="#FF7700" stroke-width="8" fill="none" opacity="0.25"/>
+  <path d="M50,230 Q150,110 250,230" stroke="#FFFF00" stroke-width="8" fill="none" opacity="0.3"/>
+  <path d="M60,235 Q150,125 240,235" stroke="#00CC00" stroke-width="7" fill="none" opacity="0.22"/>
+  <path d="M70,240 Q150,140 230,240" stroke="#0055FF" stroke-width="7" fill="none" opacity="0.22"/>
+  <path d="M80,245 Q150,155 220,245" stroke="#9900CC" stroke-width="6" fill="none" opacity="0.2"/>
+  <!-- Big star center -->
+  <polygon points="150,90 160,122 194,122 167,142 178,174 150,153 122,174 133,142 106,122 140,122" fill="#FFF176" opacity="0.9"/>
+  <!-- Star glow rings -->
+  <circle cx="150" cy="132" r="48" fill="rgba(255,241,118,0.08)"/>
+  <circle cx="150" cy="132" r="35" fill="rgba(255,241,118,0.06)"/>
+  <!-- Bubble circles (candy bubbles) -->
+  <circle cx="55" cy="155" r="20" fill="rgba(255,241,118,0.25)"/>
+  <circle cx="55" cy="155" r="13" fill="rgba(255,241,118,0.2)"/>
+  <circle cx="245" cy="148" r="18" fill="rgba(255,241,118,0.25)"/>
+  <circle cx="245" cy="148" r="11" fill="rgba(255,241,118,0.2)"/>
+  <circle cx="40" cy="270" r="15" fill="rgba(255,241,118,0.2)"/>
+  <circle cx="265" cy="260" r="16" fill="rgba(255,241,118,0.2)"/>
+  <circle cx="100" cy="285" r="10" fill="rgba(255,241,118,0.18)"/>
+  <circle cx="205" cy="278" r="10" fill="rgba(255,241,118,0.18)"/>
+  <!-- Mini stars scattered -->
+  <polygon points="75,200 78,209 88,209 80,215 83,224 75,218 67,224 70,215 62,209 72,209" fill="#FFF176" opacity="0.55"/>
+  <polygon points="228,205 231,213 240,213 233,219 236,227 228,222 220,227 223,219 216,213 225,213" fill="#FFF176" opacity="0.55"/>
+  <polygon points="150,255 152,262 159,262 154,266 156,273 150,269 144,273 146,266 141,262 148,262" fill="#FFF176" opacity="0.45"/>
+  <!-- Bouncy dots trail -->
+  <circle cx="60" cy="320" r="7" fill="rgba(255,241,118,0.3)"/>
+  <circle cx="90" cy="328" r="5" fill="rgba(255,241,118,0.25)"/>
+  <circle cx="215" cy="322" r="6" fill="rgba(255,241,118,0.3)"/>
+  <circle cx="245" cy="330" r="5" fill="rgba(255,241,118,0.25)"/>
+  <!-- Brand strip -->
+  <rect width="300" height="60" fill="rgba(60,5,0,0.75)"/>
+  <text x="150" y="38" text-anchor="middle" font-family="'Arial Black',Arial,sans-serif" font-size="18" font-weight="900" fill="#FFFFFF" letter-spacing="5">ABC FOODS</text>
+  <!-- Bottom bar -->
+  <rect y="370" width="300" height="30" fill="rgba(60,5,0,0.7)"/>
+  <text x="150" y="390" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="700" fill="#FFF176" letter-spacing="3">KIDS RANGE</text>
+</svg>

@@ -1,0 +1,1758 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPromptTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_13</activeVersionIdentifier>
+    <developerName>Shelf_Image_Analysis</developerName>
+    <masterLabel>Shelf Image Analysis</masterLabel>
+    <overridable>false</overridable>
+    <templateVersions>
+        <content>You are a retail shelf compliance assistant for ABC Foods.
+
+Analyze the shelf image provided and return the following four sections:
+
+---
+**EXTRACTED TEXT**
+Perform OCR and list every word and phrase visible on the shelf products, exactly as written, one per line.
+
+---
+**ABC FOODS PRODUCTS FOUND**
+From the extracted text, identify which of the following ABC Foods products are present on the shelf:
+- ABC Foods
+- SpicyMix / Spicy Mix
+- CrunchBits / Crunch Bits
+- Premium Sweets
+- Mango Bites
+- Cheese Puffs
+- Party Mix
+- Dark Chocolate Bites / Dark Choc Bites
+- ABCF
+
+List each matched product name exactly as it appears above.
+
+---
+**COMPETITOR PRODUCTS FOUND**
+List any competitor brand names or products visible on the shelf that are NOT ABC Foods products.
+
+---
+**SHELF SHARE**
+Estimate the percentage of shelf space occupied by ABC Foods products versus competitor products.
+Format: ABC Foods: X% | Competitors: Y%
+
+---
+Important: In the EXTRACTED TEXT section, write the product names exactly as they appear (e.g. &quot;SpicyMix&quot;, &quot;Party Mix&quot;, &quot;Dark Chocolate Bites&quot;) so keyword matching works correctly.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_1</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail shelf compliance assistant for ABC Foods.
+
+Analyze the shelf image provided and return the following four sections:
+
+---
+**EXTRACTED TEXT**
+Perform OCR and list every word and phrase visible on the shelf products, exactly as written, one per line.
+
+---
+**ABC FOODS PRODUCTS FOUND**
+From the extracted text, identify which of the following ABC Foods products are present on the shelf:
+
+Brand identifiers:
+- ABC Foods
+- ABCF
+
+Products:
+- SpicyMix Crunch / SpicyMix / Spicy Mix
+- CrunchBits Original / CrunchBits / Crunch Bits
+- Cheese Puffs Classic / Cheese Puffs
+- Premium Sweets Assortment / Premium Sweets
+- Mango Bites Gummy / Mango Bites
+- Dark Chocolate Bites / Dark Choc Bites
+- Party Mix Variety / Party Mix
+- Nacho Cheese Triangles / Nacho Cheese
+- Caramel Toffee Chews / Caramel Toffee
+- Chocolate Chip Cookies
+- Butter Cookies Classic / Butter Cookies
+- Milk Chocolate Bar
+- Fruit Burst Gummies / Fruit Burst
+- PowerPro Protein Bar / PowerPro
+- Masala Munch
+- Cream Sandwich Biscuits / Cream Sandwich
+- Festive Gift Box
+- Salted Potato Crisps / Salted Potato
+- Mint Fresh Drops / Mint Fresh
+- Rainbow Pop Candies / Rainbow Pop
+
+List each matched product name exactly as it appears above.
+
+---
+**COMPETITOR PRODUCTS FOUND**
+List any competitor brand names or products visible on the shelf that are NOT ABC Foods products.
+
+---
+**SHELF SHARE**
+Estimate the percentage of shelf space occupied by ABC Foods products versus competitor products.
+Format: ABC Foods: X% | Competitors: Y%
+
+---
+Important: In the EXTRACTED TEXT section, write the product names exactly as they appear on the shelf (e.g. &quot;SpicyMix Crunch&quot;, &quot;Party Mix Variety&quot;, &quot;Dark Chocolate Bites&quot;) so keyword matching works correctly.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_2</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail shelf compliance assistant for ABC Foods.
+
+Analyze the shelf image provided and return the following four sections:
+
+---
+**EXTRACTED TEXT**
+Perform OCR and list every word and phrase visible on the shelf products, exactly as written, one per line.
+
+---
+**ABC FOODS PRODUCTS FOUND**
+From the extracted text, identify which of the following ABC Foods products are present on the shelf:
+
+Brand identifiers:
+- ABC Foods
+- ABCF
+
+Products:
+- SpicyMix Crunch / SpicyMix / Spicy Mix
+- CrunchBits Original / CrunchBits / Crunch Bits
+- Cheese Puffs Classic / Cheese Puffs
+- Premium Sweets Assortment / Premium Sweets
+- Mango Bites Gummy / Mango Bites
+- Dark Chocolate Bites / Dark Choc Bites
+- Party Mix Variety / Party Mix
+- Nacho Cheese Triangles / Nacho Cheese
+- Caramel Toffee Chews / Caramel Toffee
+- Chocolate Chip Cookies
+- Butter Cookies Classic / Butter Cookies
+- Milk Chocolate Bar
+- Fruit Burst Gummies / Fruit Burst
+- PowerPro Protein Bar / PowerPro
+- Masala Munch
+- Cream Sandwich Biscuits / Cream Sandwich
+- Festive Gift Box
+- Salted Potato Crisps / Salted Potato
+- Mint Fresh Drops / Mint Fresh
+- Rainbow Pop Candies / Rainbow Pop
+
+List each matched product name exactly as it appears above.
+
+---
+**MISSING PRODUCTS**
+List any missing product name from the list above.
+
+---
+**COMPETITOR PRODUCTS FOUND**
+List any competitor brand names or products visible on the shelf that are NOT ABC Foods products.
+
+---
+**SHELF SHARE**
+Estimate the percentage of shelf space occupied by ABC Foods products versus competitor products.
+Format: ABC Foods: X% | Competitors: Y%
+
+---
+Important: In the EXTRACTED TEXT section, write the product names exactly as they appear on the shelf (e.g. &quot;SpicyMix Crunch&quot;, &quot;Party Mix Variety&quot;, &quot;Dark Chocolate Bites&quot;) so keyword matching works correctly.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_3</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail shelf compliance assistant for ABC Foods.
+
+Analyze the shelf image provided and return the following four sections:
+
+---
+**EXTRACTED TEXT**
+Perform OCR and list every word and phrase visible on the shelf products, exactly as written, one per line.
+
+---
+**ABC FOODS PRODUCTS FOUND**
+From the extracted text, identify which of the following ABC Foods products are present on the shelf:
+
+Brand identifiers:
+- ABC Foods
+- ABC
+
+Products:
+
+
+- SpicyMix Crunch
+- CrunchBits Original
+- Cheese Puffs Classic
+- Premium Sweets Assortment
+- Mango Bites Gummy
+- Dark Chocolate Bites
+- Party Mix Variety
+- Nacho Cheese Triangles
+- Salted Potato Crisps
+- Onion Rings Crispy
+- Veggie Mix Chips
+- Chocolate Chip Cookies
+- Veggie Mix Chips
+- Masala Munch
+- Cheese Puffs XL
+- Party Mix Family
+- Caramel Toffee Chews
+- Fruit Burst Gummies
+- Strawberry Jellies
+- Orange Citrus Candies
+- Mint Fresh Drops
+- Chocolate Cream Wafers
+- Milk Chocolate Bar
+- Dark Chocolate Bar
+- White Chocolate Dreams
+- Mixed Candy Jar
+
+### Cookies &amp; Biscuits
+
+ - Butter Cookies Classic
+- Chocolate Chip Cookies
+- Coconut Crunch Biscuits
+- Oatmeal Raisin Cookies
+- Cream Sandwich Biscuits
+- Digestive Wheat Biscuits
+
+### Premium/Seasonal Range
+
+- Festive Gift Box Assortment
+- Executive Selection Chocolates
+- Holiday Special Mix
+- Luxury Truffle Collection
+- Gourmet Nut Clusters
+- Artisan Cookie Box
+
+### Health &amp; Protein Bars
+
+- PowerPro Protein Bar
+- Energy Boost Bar
+- Granola Crunch Bar
+- Nutri-Grain Bar
+- FitBite Energy
+
+### Kids &amp; Fun Range
+
+- Rainbow Pop Candies
+- Jelly Bears Mix
+- Chocolate Buttons
+- Fruit Chews Variety
+- Popcorn Sweet &amp; Salty
+
+List each matched product name exactly as it appears above and remove the weight associated with the product name.
+
+---
+**MISSING PRODUCTS**
+List any missing product name from the list above.
+
+---
+**COMPETITOR PRODUCTS FOUND**
+List any competitor brand names or products visible on the shelf that are NOT ABC Foods products.
+
+---
+**SHELF SHARE**
+Estimate the percentage of shelf space occupied by ABC Foods products versus competitor products.
+Format: ABC Foods: X% | Competitors: Y%
+
+---
+Important: In the EXTRACTED TEXT section, write the product names exactly as they appear on the shelf (e.g. &quot;SpicyMix Crunch&quot;, &quot;Party Mix Variety&quot;, &quot;Dark Chocolate Bites&quot;) so keyword matching works correctly.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_4</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>You are a retail shelf compliance assistant for ABC Foods.
+
+Analyze the shelf image provided and return the following four sections:
+
+---
+**EXTRACTED TEXT**
+Perform OCR and list every word and phrase visible on the shelf products, exactly as written, one per line.
+
+---
+**ABC FOODS PRODUCTS FOUND**
+From the extracted text, identify which of the following ABC Foods products are present on the shelf:
+
+Brand identifiers:
+- ABC Foods
+- ABC
+
+Products:
+
+
+- SpicyMix Crunch
+- CrunchBits Original
+- Cheese Puffs Classic
+- Premium Sweets Assortment
+- Mango Bites Gummy
+- Dark Chocolate Bites
+- Party Mix Variety
+- Nacho Cheese Triangles
+- Salted Potato Crisps
+- Onion Rings Crispy
+- Veggie Mix Chips
+- Chocolate Chip Cookies
+- Veggie Mix Chips
+- Masala Munch
+- Cheese Puffs XL
+- Party Mix Family
+- Caramel Toffee Chews
+- Fruit Burst Gummies
+- Strawberry Jellies
+- Orange Citrus Candies
+- Mint Fresh Drops
+- Chocolate Cream Wafers
+- Milk Chocolate Bar
+- Dark Chocolate Bar
+- White Chocolate Dreams
+- Mixed Candy Jar
+
+### Cookies &amp; Biscuits
+
+ - Butter Cookies Classic
+- Chocolate Chip Cookies
+- Coconut Crunch Biscuits
+- Oatmeal Raisin Cookies
+- Cream Sandwich Biscuits
+- Digestive Wheat Biscuits
+
+### Premium/Seasonal Range
+
+- Festive Gift Box Assortment
+- Executive Selection Chocolates
+- Holiday Special Mix
+- Luxury Truffle Collection
+- Gourmet Nut Clusters
+- Artisan Cookie Box
+
+### Health &amp; Protein Bars
+
+- PowerPro Protein Bar
+- Energy Boost Bar
+- Granola Crunch Bar
+- Nutri-Grain Bar
+- FitBite Energy
+
+### Kids &amp; Fun Range
+
+- Rainbow Pop Candies
+- Jelly Bears Mix
+- Chocolate Buttons
+- Fruit Chews Variety
+- Popcorn Sweet &amp; Salty
+
+List each matched product name exactly as it appears above and remove the weight associated with the product name.
+
+---
+**MISSING PRODUCTS**
+List any missing product name from the list above.
+
+---
+**COMPETITOR PRODUCTS FOUND**a
+List any competitor brand names or products visible on the shelf that are NOT ABC Foods products.
+
+---
+**SHELF SHARE**
+Estimate the percentage of shelf space occupied by ABC Foods products versus competitor products.
+Format: ABC Foods: X% | Competitors: Y%
+
+---
+Important: In the EXTRACTED TEXT section, write the product names exactly as they appear on the shelf (e.g. &quot;SpicyMix Crunch&quot;, &quot;Party Mix Variety&quot;, &quot;Dark Chocolate Bites&quot;) so keyword matching works correctly.
+
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Draft</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_5</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog:
+- SpicyMix Crunch
+- CrunchBits Original
+- Cheese Puffs Classic
+- Premium Sweets Assortment
+- Mango Bites Gummy
+- Dark Chocolate Bites
+- Party Mix Variety
+- Nacho Cheese Triangles
+- Salted Potato Crisps
+- Onion Rings Crispy
+- Veggie Mix Chips
+- Chocolate Chip Cookies
+- Masala Munch
+- Cheese Puffs XL
+- Party Mix Family
+- Caramel Toffee Chews
+- Fruit Burst Gummies
+- Strawberry Jellies
+- Orange Citrus Candies
+- Mint Fresh Drops
+- Chocolate Cream Wafers
+- Milk Chocolate Bar
+- Dark Chocolate Bar
+- White Chocolate Dreams
+- Mixed Candy Jar
+- Butter Cookies Classic
+- Coconut Crunch Biscuits
+- Oatmeal Raisin Cookies
+- Cream Sandwich Biscuits
+- Digestive Wheat Biscuits
+- Festive Gift Box Assortment
+- Executive Selection Chocolates
+- Holiday Special Mix
+- Luxury Truffle Collection
+- Gourmet Nut Clusters
+- Artisan Cookie Box
+- PowerPro Protein Bar
+- Energy Boost Bar
+- Granola Crunch Bar
+- Nutri-Grain Bar
+- FitBite Energy
+- Rainbow Pop Candies
+- Jelly Bears Mix
+- Chocolate Buttons
+- Fruit Chews Variety
+- Popcorn Sweet &amp; Salty
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+  &quot;products&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;present&quot;: [
+        {
+          &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+          &quot;quantity&quot;: 0,
+          &quot;shelfPosition&quot;: &quot;Position description&quot;
+        }
+      ],
+      &quot;missing&quot;: [
+        &quot;Product name from catalog not found on shelf&quot;
+      ]
+    },
+    &quot;competitors&quot;: [
+      {
+        &quot;productName&quot;: &quot;Product name&quot;,
+        &quot;brand&quot;: &quot;Brand name&quot;,
+        &quot;quantity&quot;: 0,
+        &quot;shelfPosition&quot;: &quot;Position description&quot;
+      }
+    ]
+  },
+  &quot;shelfShare&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;presentCount&quot;: 0,
+      &quot;missingCount&quot;: 0,
+      &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+    },
+    &quot;competitors&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;description&quot;: &quot;Description of competitor presence&quot;
+    }
+  }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+2. List products found on shelf in &quot;present&quot; array with exact names matching the catalog
+3. List products NOT found on shelf in &quot;missing&quot; array using exact names from catalog
+4. Identify and count all competitor products in similar categories (chocolates, snacks, confectionery)
+5. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+6. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+7. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+8. Include presentCount and missingCount in abcFoods shelfShare
+9. Return ONLY the JSON structure, no additional text or explanation
+
+Ensure all numeric values are accurate and percentages add up to 100%. Match product names exactly as they appear in the catalog.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_6</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog:
+- SpicyMix Crunch
+- CrunchBits Original
+- Cheese Puffs Classic
+- Premium Sweets Assortment
+- Mango Bites Gummy
+- Dark Chocolate Bites
+- Party Mix Variety
+- Nacho Cheese Triangles
+- Salted Potato Crisps
+- Onion Rings Crispy
+- Veggie Mix Chips
+- Chocolate Chip Cookies
+- Masala Munch
+- Cheese Puffs XL
+- Party Mix Family
+- Caramel Toffee Chews
+- Fruit Burst Gummies
+- Strawberry Jellies
+- Orange Citrus Candies
+- Mint Fresh Drops
+- Chocolate Cream Wafers
+- Milk Chocolate Bar
+- Dark Chocolate Bar
+- White Chocolate Dreams
+- Mixed Candy Jar
+- Butter Cookies Classic
+- Coconut Crunch Biscuits
+- Oatmeal Raisin Cookies
+- Cream Sandwich Biscuits
+- Digestive Wheat Biscuits
+- Festive Gift Box Assortment
+- Executive Selection Chocolates
+- Holiday Special Mix
+- Luxury Truffle Collection
+- Gourmet Nut Clusters
+- Artisan Cookie Box
+- PowerPro Protein Bar
+- Energy Boost Bar
+- Granola Crunch Bar
+- Nutri-Grain Bar
+- FitBite Energy
+- Rainbow Pop Candies
+- Jelly Bears Mix
+- Chocolate Buttons
+- Fruit Chews Variety
+- Popcorn Sweet &amp; Salty
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+  &quot;products&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;present&quot;: [
+        {
+          &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+          &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+          &quot;quantity&quot;: 0,
+          &quot;shelfPosition&quot;: &quot;Position description&quot;
+        }
+      ],
+      &quot;missing&quot;: [
+        {
+          &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+          &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+        }
+      ]
+    },
+    &quot;competitors&quot;: [
+      {
+        &quot;productName&quot;: &quot;Product name&quot;,
+        &quot;brand&quot;: &quot;Brand name&quot;,
+        &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+        &quot;quantity&quot;: 0,
+        &quot;shelfPosition&quot;: &quot;Position description&quot;
+      }
+    ]
+  },
+  &quot;shelfShare&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;presentCount&quot;: 0,
+      &quot;missingCount&quot;: 0,
+      &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+    },
+    &quot;competitors&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;description&quot;: &quot;Description of competitor presence&quot;
+    }
+  }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+   
+   A. FOR ABC FOODS PRODUCTS (present and missing):
+      MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+      - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+      - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+      - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+      - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+      - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+      - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+      - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+   
+   B. FOR COMPETITOR PRODUCTS:
+      Derive the category from the product name and type. Use descriptive categories based on what the product is.
+      Examples: &quot;Chocolate Bar&quot;, &quot;Potato Chips&quot;, &quot;Energy Drink&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Gum&quot;, etc.
+      The category should clearly describe the product type based on its name.
+
+3. List products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition
+4. List products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify competitor products - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+7. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+8. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+9. Include presentCount and missingCount in abcFoods shelfShare
+10. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+- Competitor products: Category should be derived from product name/type (e.g., &quot;Chocolate Bar&quot;, &quot;Potato Chips&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, etc.). Be descriptive and specific.
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and percentages add up to 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_7</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog:
+- SpicyMix Crunch
+- CrunchBits Original
+- Cheese Puffs Classic
+- Premium Sweets Assortment
+- Mango Bites Gummy
+- Dark Chocolate Bites
+- Party Mix Variety
+- Nacho Cheese Triangles
+- Salted Potato Crisps
+- Onion Rings Crispy
+- Veggie Mix Chips
+- Chocolate Chip Cookies
+- Masala Munch
+- Cheese Puffs XL
+- Party Mix Family
+- Caramel Toffee Chews
+- Fruit Burst Gummies
+- Strawberry Jellies
+- Orange Citrus Candies
+- Mint Fresh Drops
+- Chocolate Cream Wafers
+- Milk Chocolate Bar
+- Dark Chocolate Bar
+- White Chocolate Dreams
+- Mixed Candy Jar
+- Butter Cookies Classic
+- Coconut Crunch Biscuits
+- Oatmeal Raisin Cookies
+- Cream Sandwich Biscuits
+- Digestive Wheat Biscuits
+- Festive Gift Box Assortment
+- Executive Selection Chocolates
+- Holiday Special Mix
+- Luxury Truffle Collection
+- Gourmet Nut Clusters
+- Artisan Cookie Box
+- PowerPro Protein Bar
+- Energy Boost Bar
+- Granola Crunch Bar
+- Nutri-Grain Bar
+- FitBite Energy
+- Rainbow Pop Candies
+- Jelly Bears Mix
+- Chocolate Buttons
+- Fruit Chews Variety
+- Popcorn Sweet &amp; Salty
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+  &quot;products&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;present&quot;: [
+        {
+          &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+          &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+          &quot;quantity&quot;: 0,
+          &quot;shelfPosition&quot;: &quot;Position description&quot;
+        }
+      ],
+      &quot;missing&quot;: [
+        {
+          &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+          &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+        }
+      ]
+    },
+    &quot;competitors&quot;: [
+      {
+        &quot;productName&quot;: &quot;Product name&quot;,
+        &quot;brand&quot;: &quot;Brand name&quot;,
+        &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+        &quot;quantity&quot;: 0,
+        &quot;shelfPosition&quot;: &quot;Position description&quot;
+      }
+    ],
+    &quot;otherProducts&quot;: [
+      {
+        &quot;productName&quot;: &quot;Product name&quot;,
+        &quot;brand&quot;: &quot;Brand name&quot;,
+        &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+        &quot;quantity&quot;: 0,
+        &quot;shelfPosition&quot;: &quot;Position description&quot;
+      }
+    ]
+  },
+  &quot;shelfShare&quot;: {
+    &quot;abcFoods&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;presentCount&quot;: 0,
+      &quot;missingCount&quot;: 0,
+      &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+    },
+    &quot;competitors&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+    },
+    &quot;otherProducts&quot;: {
+      &quot;percentage&quot;: 0,
+      &quot;totalProducts&quot;: 0,
+      &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+    }
+  }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+   
+   A. FOR ABC FOODS PRODUCTS (present and missing):
+      MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+      - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+      - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+      - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+      - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+      - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+      - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+      - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+   
+   B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+      
+      i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+         - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+         - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+         - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+         - Derive descriptive category from product name (e.g., &quot;Potato Chips&quot;, &quot;Chocolate Bar&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Wafer&quot;, &quot;Snack Bar&quot;)
+         - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+      
+      ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+         - Products that are NOT packaged snacks or sweets
+         - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+         - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+         - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+         - Derive descriptive category from product name (e.g., &quot;Soft Drink&quot;, &quot;Juice&quot;, &quot;Water&quot;, &quot;Cereal&quot;, &quot;Spread&quot;, &quot;Bread&quot;, &quot;Milk&quot;)
+
+3. List ABC Foods products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition
+4. List ABC Foods products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify COMPETITOR products (matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Identify OTHER products (NOT matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+7. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+8. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+9. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100
+10. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+11. Include presentCount and missingCount in abcFoods shelfShare
+12. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+  * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+  * EXCLUDE ALL: 
+    - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+    - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+    - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+    - Spreads: Pintola, Nutella, peanut butter, jam
+    - Dairy: Milk, yogurt, cheese
+    - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+  * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice → category &quot;Juice&quot;
+  * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats → category &quot;Cereal&quot;
+  * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew → category &quot;Soft Drink&quot;
+  * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam → category &quot;Spread&quot;
+  * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+  * Frooti, Real, Tropicana, Maaza, any juice → otherProducts with category &quot;Juice&quot;, NEVER competitors
+  * Kellogg&apos;s, Chocos, any cereal → otherProducts with category &quot;Cereal&quot;, NEVER competitors
+  * Pepsi, Coke, Thumbs Up, any beverage → otherProducts with category &quot;Soft Drink&quot;, NEVER competitors
+  * Pintola, peanut butter, any spread → otherProducts with category &quot;Spread&quot;, NEVER competitors
+
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_8</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog (includes Placement guidelines): {!$Apex:ProductCatalogService.productDetails}
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+ &quot;products&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;present&quot;: [
+    {
+     &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+     &quot;quantity&quot;: 0,
+     &quot;shelfPosition&quot;: &quot;Position description&quot;,
+     &quot;placementStatus&quot;: &quot;Correct|Needs Attention&quot;
+    }
+   ],
+   &quot;missing&quot;: [
+    {
+     &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+    }
+   ]
+  },
+  &quot;competitors&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ],
+  &quot;otherProducts&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ]
+ },
+ &quot;shelfShare&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;presentCount&quot;: 0,
+   &quot;missingCount&quot;: 0,
+   &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+  },
+  &quot;competitors&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+  },
+  &quot;otherProducts&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+  }
+ }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+  
+  A. FOR ABC FOODS PRODUCTS (present and missing):
+   MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+   - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+   - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+   - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+   - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+   - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+   - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+   - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+  
+  B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+    
+   i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+     - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+     - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+     - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+     - Derive descriptive category from product name (e.g., &quot;Potato Chips&quot;, &quot;Chocolate Bar&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Wafer&quot;, &quot;Snack Bar&quot;)
+     - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+    
+   ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+     - Products that are NOT packaged snacks or sweets
+     - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+     - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+     - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+     - Derive descriptive category from product name (e.g., &quot;Soft Drink&quot;, &quot;Juice&quot;, &quot;Water&quot;, &quot;Cereal&quot;, &quot;Spread&quot;, &quot;Bread&quot;, &quot;Milk&quot;)
+
+3. List ABC Foods products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition, placementStatus
+4. List ABC Foods products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify COMPETITOR products (matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Identify OTHER products (NOT matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+7. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+8. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+9. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100
+10. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+11. Include presentCount and missingCount in abcFoods shelfShare
+12. PLACEMENT VALIDATION (ABC Foods products only):
+  - Each ABC Foods product in the catalog includes a recommended Placement (e.g., &quot;Top Shelf&quot;, &quot;Eye Level&quot;, &quot;Bottom Shelf&quot;, &quot;Checkout Aisle&quot;)
+  - For every ABC Foods product found in the &quot;present&quot; array, compare its detected shelfPosition against the Placement value from the catalog
+  - Set placementStatus to &quot;Correct&quot; if the detected shelfPosition matches or is consistent with the catalog Placement guideline
+  - Set placementStatus to &quot;Needs Attention&quot; if the detected shelfPosition does not match the catalog Placement guideline
+  - Do NOT add placementStatus to competitors or otherProducts
+13. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+ * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+ * EXCLUDE ALL: 
+  - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+  - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+  - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+  - Spreads: Pintola, Nutella, peanut butter, jam
+  - Dairy: Milk, yogurt, cheese
+  - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+ * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice → category &quot;Juice&quot;
+ * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats → category &quot;Cereal&quot;
+ * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew → category &quot;Soft Drink&quot;
+ * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam → category &quot;Spread&quot;
+ * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+ * Frooti, Real, Tropicana, Maaza, any juice → otherProducts with category &quot;Juice&quot;, NEVER competitors
+ * Kellogg&apos;s, Chocos, any cereal → otherProducts with category &quot;Cereal&quot;, NEVER competitors
+ * Pepsi, Coke, Thumbs Up, any beverage → otherProducts with category &quot;Soft Drink&quot;, NEVER competitors
+ * Pintola, peanut butter, any spread → otherProducts with category &quot;Spread&quot;, NEVER competitors
+
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+- placementStatus is ONLY applicable to ABC Foods present products. Never add it to competitors or otherProducts.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT5Mini</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://ProductCatalogService</definition>
+            <description>Retrieves all active products available in the system</description>
+            <label>Get Products</label>
+            <referenceName>Apex:ProductCatalogService</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_9</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog (includes Placement guidelines): {!$Apex:ProductCatalogService.productDetails}
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+ &quot;products&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;present&quot;: [
+    {
+     &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+     &quot;quantity&quot;: 0,
+     &quot;shelfPosition&quot;: &quot;Position description&quot;,
+     &quot;placementStatus&quot;: &quot;Correct|Needs Attention&quot;
+    }
+   ],
+   &quot;missing&quot;: [
+    {
+     &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+    }
+   ]
+  },
+  &quot;competitors&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ],
+  &quot;otherProducts&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ]
+ },
+ &quot;shelfShare&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;presentCount&quot;: 0,
+   &quot;missingCount&quot;: 0,
+   &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+  },
+  &quot;competitors&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+  },
+  &quot;otherProducts&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+  }
+ }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+  
+  A. FOR ABC FOODS PRODUCTS (present and missing):
+   MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+   - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+   - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+   - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+   - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+   - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+   - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+   - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+  
+  B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+    
+   i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+     - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+     - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+     - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+     - Derive descriptive category from product name (e.g., &quot;Potato Chips&quot;, &quot;Chocolate Bar&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Wafer&quot;, &quot;Snack Bar&quot;)
+     - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+    
+   ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+     - Products that are NOT packaged snacks or sweets
+     - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+     - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+     - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+     - Derive descriptive category from product name (e.g., &quot;Soft Drink&quot;, &quot;Juice&quot;, &quot;Water&quot;, &quot;Cereal&quot;, &quot;Spread&quot;, &quot;Bread&quot;, &quot;Milk&quot;)
+
+3. List ABC Foods products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition, placementStatus
+4. List ABC Foods products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify COMPETITOR products (matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Identify OTHER products (NOT matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+7. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+8. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+9. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100
+10. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+11. Include presentCount and missingCount in abcFoods shelfShare
+12. PLACEMENT VALIDATION (ABC Foods products only):
+  - Each ABC Foods product in the catalog includes a recommended Placement (e.g., &quot;Top Shelf&quot;, &quot;Eye Level&quot;, &quot;Bottom Shelf&quot;, &quot;Checkout Aisle&quot;)
+  - For every ABC Foods product found in the &quot;present&quot; array, compare its detected shelfPosition against the Placement value from the catalog
+  - Set placementStatus to &quot;Correct&quot; if the detected shelfPosition matches or is consistent with the catalog Placement guideline
+  - Set placementStatus to &quot;Needs Attention&quot; if the detected shelfPosition does not match the catalog Placement guideline
+  - Do NOT add placementStatus to competitors or otherProducts
+13. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+ * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+ * EXCLUDE ALL: 
+  - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+  - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+  - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+  - Spreads: Pintola, Nutella, peanut butter, jam
+  - Dairy: Milk, yogurt, cheese
+  - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+ * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice → category &quot;Juice&quot;
+ * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats → category &quot;Cereal&quot;
+ * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew → category &quot;Soft Drink&quot;
+ * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam → category &quot;Spread&quot;
+ * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+ * Frooti, Real, Tropicana, Maaza, any juice → otherProducts with category &quot;Juice&quot;, NEVER competitors
+ * Kellogg&apos;s, Chocos, any cereal → otherProducts with category &quot;Cereal&quot;, NEVER competitors
+ * Pepsi, Coke, Thumbs Up, any beverage → otherProducts with category &quot;Soft Drink&quot;, NEVER competitors
+ * Pintola, peanut butter, any spread → otherProducts with category &quot;Spread&quot;, NEVER competitors
+
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+- placementStatus is ONLY applicable to ABC Foods present products. Never add it to competitors or otherProducts.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultBedrockAnthropicClaude45Sonnet</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://ProductCatalogService</definition>
+            <description>Retrieves all active products available in the system</description>
+            <label>Get Products</label>
+            <referenceName>Apex:ProductCatalogService</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_10</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog (includes Placement guidelines): {!$Apex:ProductCatalogService.productDetails}
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+ &quot;products&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;present&quot;: [
+    {
+     &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+     &quot;quantity&quot;: 0,
+     &quot;shelfPosition&quot;: &quot;Position description&quot;,
+     &quot;placementStatus&quot;: &quot;Correct|Needs Attention&quot;
+    }
+   ],
+   &quot;missing&quot;: [
+    {
+     &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+    }
+   ]
+  },
+  &quot;competitors&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ],
+  &quot;otherProducts&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ]
+ },
+ &quot;shelfShare&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;presentCount&quot;: 0,
+   &quot;missingCount&quot;: 0,
+   &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+  },
+  &quot;competitors&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+  },
+  &quot;otherProducts&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+  }
+ }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+  
+  A. FOR ABC FOODS PRODUCTS (present and missing):
+   MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+   - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+   - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+   - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+   - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+   - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+   - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+   - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+  
+  B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+    
+   i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+     - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+     - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+     - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+     - Derive descriptive category from product name (e.g., &quot;Potato Chips&quot;, &quot;Chocolate Bar&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Wafer&quot;, &quot;Snack Bar&quot;)
+     - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+    
+   ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+     - Products that are NOT packaged snacks or sweets
+     - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+     - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+     - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+     - Derive descriptive category from product name (e.g., &quot;Soft Drink&quot;, &quot;Juice&quot;, &quot;Water&quot;, &quot;Cereal&quot;, &quot;Spread&quot;, &quot;Bread&quot;, &quot;Milk&quot;)
+
+3. List ABC Foods products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition, placementStatus
+4. List ABC Foods products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify COMPETITOR products (matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Identify OTHER products (NOT matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+7. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+8. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+9. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100
+10. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+11. Include presentCount and missingCount in abcFoods shelfShare
+12. PLACEMENT VALIDATION (ABC Foods products only):
+  - Each ABC Foods product in the catalog includes a recommended Placement (e.g., &quot;Top Shelf&quot;, &quot;Eye Level&quot;, &quot;Bottom Shelf&quot;, &quot;Checkout Aisle&quot;)
+  - For every ABC Foods product found in the &quot;present&quot; array, compare its detected shelfPosition against the Placement value from the catalog
+  - Set placementStatus to &quot;Correct&quot; if the detected shelfPosition matches or is consistent with the catalog Placement guideline
+  - Set placementStatus to &quot;Needs Attention&quot; if the detected shelfPosition does not match the catalog Placement guideline
+  - Do NOT add placementStatus to competitors or otherProducts
+13. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+ * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+ * EXCLUDE ALL: 
+  - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+  - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+  - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+  - Spreads: Pintola, Nutella, peanut butter, jam
+  - Dairy: Milk, yogurt, cheese
+  - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+ * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice → category &quot;Juice&quot;
+ * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats → category &quot;Cereal&quot;
+ * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew → category &quot;Soft Drink&quot;
+ * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam → category &quot;Spread&quot;
+ * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+ * Frooti, Real, Tropicana, Maaza, any juice → otherProducts with category &quot;Juice&quot;, NEVER competitors
+ * Kellogg&apos;s, Chocos, any cereal → otherProducts with category &quot;Cereal&quot;, NEVER competitors
+ * Pepsi, Coke, Thumbs Up, any beverage → otherProducts with category &quot;Soft Drink&quot;, NEVER competitors
+ * Pintola, peanut butter, any spread → otherProducts with category &quot;Spread&quot;, NEVER competitors
+
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+- placementStatus is ONLY applicable to ABC Foods present products. Never add it to competitors or otherProducts.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://ProductCatalogService</definition>
+            <description>Retrieves all active products available in the system</description>
+            <label>Get Products</label>
+            <referenceName>Apex:ProductCatalogService</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_11</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog (includes Placement guidelines): {!$Apex:ProductCatalogService.productDetails}
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+ &quot;products&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;present&quot;: [
+    {
+     &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+     &quot;quantity&quot;: 0,
+     &quot;shelfPosition&quot;: &quot;Position description&quot;,
+     &quot;placementStatus&quot;: &quot;Correct|Needs Attention&quot;
+    }
+   ],
+   &quot;missing&quot;: [
+    {
+     &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+    }
+   ]
+  },
+  &quot;competitors&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ],
+  &quot;otherProducts&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ]
+ },
+ &quot;shelfShare&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;presentCount&quot;: 0,
+   &quot;missingCount&quot;: 0,
+   &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+  },
+  &quot;competitors&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+  },
+  &quot;otherProducts&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+  }
+ }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above
+
+2. CATEGORY CLASSIFICATION RULES:
+  
+  A. FOR ABC FOODS PRODUCTS (present and missing):
+   MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+   - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+   - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+   - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+   - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+   - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+   - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+   - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+  
+  B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+    
+   i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+     - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+     - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+     - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+     - Derive descriptive category from product name (e.g., &quot;Potato Chips&quot;, &quot;Chocolate Bar&quot;, &quot;Candy&quot;, &quot;Cookie&quot;, &quot;Wafer&quot;, &quot;Snack Bar&quot;)
+     - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+    
+   ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+     - Products that are NOT packaged snacks or sweets
+     - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+     - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+     - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+     - Derive descriptive category from product name (e.g., &quot;Soft Drink&quot;, &quot;Juice&quot;, &quot;Water&quot;, &quot;Cereal&quot;, &quot;Spread&quot;, &quot;Bread&quot;, &quot;Milk&quot;)
+
+3. List ABC Foods products found on shelf in &quot;present&quot; array - MUST include: productName, category, quantity, shelfPosition, placementStatus
+4. List ABC Foods products NOT found on shelf in &quot;missing&quot; array - MUST include: productName, category
+5. Identify COMPETITOR products (matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+6. Identify OTHER products (NOT matching ABC Foods categories) - MUST include: productName, brand, category (derived from product name), quantity, shelfPosition
+7. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100
+8. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100
+9. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100
+10. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right)
+11. Include presentCount and missingCount in abcFoods shelfShare
+12. PLACEMENT VALIDATION (ABC Foods products only):
+  - Each ABC Foods product in the catalog includes a recommended Placement (e.g., &quot;Top Shelf&quot;, &quot;Eye Level&quot;, &quot;Bottom Shelf&quot;, &quot;Checkout Aisle&quot;)
+  - For every ABC Foods product found in the &quot;present&quot; array, compare its detected shelfPosition against the Placement value from the catalog
+  - Set placementStatus to &quot;Correct&quot; if the detected shelfPosition matches or is consistent with the catalog Placement guideline
+  - Set placementStatus to &quot;Needs Attention&quot; if the detected shelfPosition does not match the catalog Placement guideline
+  - Do NOT add placementStatus to competitors or otherProducts
+13. Return ONLY the JSON structure, no additional text or explanation
+
+CRITICAL: 
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: &quot;Salty Snacks&quot;, &quot;Sweet Snacks&quot;, &quot;Confectionery&quot;, &quot;Biscuits&quot;, &quot;Premium Range&quot;, &quot;Health Bars&quot;, or &quot;Kids Range&quot;. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+ * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+ * EXCLUDE ALL: 
+  - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+  - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+  - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+  - Spreads: Pintola, Nutella, peanut butter, jam
+  - Dairy: Milk, yogurt, cheese
+  - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+ * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice → category &quot;Juice&quot;
+ * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats → category &quot;Cereal&quot;
+ * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew → category &quot;Soft Drink&quot;
+ * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam → category &quot;Spread&quot;
+ * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+ * Frooti, Real, Tropicana, Maaza, any juice → otherProducts with category &quot;Juice&quot;, NEVER competitors
+ * Kellogg&apos;s, Chocos, any cereal → otherProducts with category &quot;Cereal&quot;, NEVER competitors
+ * Pepsi, Coke, Thumbs Up, any beverage → otherProducts with category &quot;Soft Drink&quot;, NEVER competitors
+ * Pintola, peanut butter, any spread → otherProducts with category &quot;Spread&quot;, NEVER competitors
+
+- Never omit the category field for any product.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+- placementStatus is ONLY applicable to ABC Foods present products. Never add it to competitors or otherProducts.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://ProductCatalogService</definition>
+            <description>Retrieves all active products available in the system</description>
+            <label>Get Products</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>placeholder</parameterName>
+                <valueExpression>{!$Input:ContentDocumentID.Id}</valueExpression>
+            </parameters>
+            <referenceName>Apex:ProductCatalogService</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_12</versionIdentifier>
+    </templateVersions>
+    <templateVersions>
+        <content>Read the {!$Input:ContentDocumentID.Id} and perform OCR to analyze the shelf display.
+
+Analyze the shelf image and identify all visible products. My brand is &quot;ABC Foods&quot;.
+
+ABC Foods Complete Product Catalog (includes Placement guidelines and Store Quantity): {!$Apex:ProductCatalogService.productDetails}
+
+Return the analysis as a JSON object with the following EXACT structure:
+
+{
+ &quot;products&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;present&quot;: [
+    {
+     &quot;productName&quot;: &quot;Exact product name from catalog&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;,
+     &quot;quantity&quot;: 0,
+     &quot;shelfPosition&quot;: &quot;Position description&quot;,
+     &quot;placementStatus&quot;: &quot;Correct|Needs Attention&quot;,
+     &quot;storeQuantity&quot;: 0,
+     &quot;alertType&quot;: &quot;LOW_STOCK|STOCKED&quot;,
+     &quot;message&quot;: &quot;Store quantity is below 50|Stocked&quot;
+    }
+   ],
+   &quot;missing&quot;: [
+    {
+     &quot;productName&quot;: &quot;Product name from catalog not found on shelf&quot;,
+     &quot;category&quot;: &quot;Salty Snacks|Sweet Snacks|Confectionery|Biscuits|Premium Range|Health Bars|Kids Range&quot;
+    }
+   ]
+  },
+  &quot;competitors&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ],
+  &quot;otherProducts&quot;: [
+   {
+    &quot;productName&quot;: &quot;Product name&quot;,
+    &quot;brand&quot;: &quot;Brand name&quot;,
+    &quot;category&quot;: &quot;Derived category from product name/type&quot;,
+    &quot;quantity&quot;: 0,
+    &quot;shelfPosition&quot;: &quot;Position description&quot;
+   }
+  ]
+ },
+ &quot;shelfShare&quot;: {
+  &quot;abcFoods&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;presentCount&quot;: 0,
+   &quot;missingCount&quot;: 0,
+   &quot;description&quot;: &quot;Description of ABC Foods presence&quot;
+  },
+  &quot;competitors&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of competitor presence in ABC Foods categories&quot;
+  },
+  &quot;otherProducts&quot;: {
+   &quot;percentage&quot;: 0,
+   &quot;totalProducts&quot;: 0,
+   &quot;description&quot;: &quot;Description of other products not in ABC Foods categories&quot;
+  }
+ }
+}
+
+Instructions:
+1. Compare detected ABC Foods products against the complete catalog above.
+
+2. IMPORTANT QUANTITY VS STORE QUANTITY RULE:
+ - The catalog contains a Store Quantity value for each ABC Foods product.
+ - That Store Quantity value comes from StoreProduct.Quantity__c.
+ - In the JSON response:
+ - quantity = observed count seen in the shelf image
+ - storeQuantity = Store Quantity value from the ABC Foods catalog for that exact product
+ - Never copy storeQuantity into quantity.
+ - storeQuantity must come from the catalog entry for that exact ABC Foods product.
+
+3. CATEGORY CLASSIFICATION RULES:
+
+ A. FOR ABC FOODS PRODUCTS (present and missing):
+ MANDATORY: Classify EVERY ABC Foods product into EXACTLY one of these seven categories:
+ - Salty Snacks: Chips, crisps, puffs, savory mix varieties, salted items, popcorn (savory)
+ - Sweet Snacks: Sweet popcorn, sweet mix varieties, sweet-flavored items
+ - Confectionery: Chocolates, chocolate bars, bites, wafers, gummies, jellies, toffees, chews, mints, candies, buttons
+ - Biscuits: Cookies, biscuits, cream sandwiches, wafers (non-chocolate)
+ - Premium Range: Gift boxes, assortments, executive selections, luxury collections, gourmet items
+ - Health Bars: Protein bars, energy bars, granola bars, nutri-grain bars
+ - Kids Range: Rainbow pops, jelly bears, character-themed items, kids-specific products
+
+ B. FOR NON-ABC FOODS PRODUCTS - CATEGORIZE INTO TWO GROUPS:
+
+ i. COMPETITORS (ONLY products that compete directly with ABC Foods):
+ - ABC Foods is a packaged foods company specializing in SNACKS and SWEETS only
+ - ONLY include: Chips, crisps, puffs, pretzels, popcorn, chocolates, candy bars, gummies, jellies, toffees, cookies, biscuits, wafers, protein/energy bars (packaged snack bars), kids snack products
+ - Examples: Lays chips, Pringles, Doritos, Snickers, Cadbury, Hershey&apos;s, Twix, M&amp;Ms, Oreo, Britannia cookies, Quest bars, Clif bars, KitKat, Skittles, Mentos
+ - Derive descriptive category from product name (e.g., Potato Chips, Chocolate Bar, Candy, Cookie, Wafer, Snack Bar)
+ - EXCLUDE ALL: Beverages (soft drinks, juices, water, milk, tea, coffee, energy drinks), Cereals (corn flakes, muesli, oats), Spreads (peanut butter, jam, Nutella), Bread, Dairy products, Fresh foods, Household items
+
+ ii. OTHER PRODUCTS (products that do NOT compete with ABC Foods):
+ - Products that are NOT packaged snacks or sweets
+ - MUST include: ALL beverages/drinks (Pepsi, Coke, Thumbs Up, Sprite, Fanta, Frooti, Real juice, Tropicana, Maaza, water, milk, tea, coffee, Red Bull, Monster, Gatorade)
+ - MUST include: ALL cereals (Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, breakfast cereals)
+ - MUST include: Spreads (peanut butter, Nutella, jam, Pintola), Bread, Dairy (yogurt, cheese), Fresh items, Frozen foods, Household items, Non-food
+ - Derive descriptive category from product name (e.g., Soft Drink, Juice, Water, Cereal, Spread, Bread, Milk)
+
+4. List ABC Foods products found on shelf in present array. MUST include: productName, category, quantity, shelfPosition, placementStatus, storeQuantity, alertType, message.
+5. List ABC Foods products NOT found on shelf in missing array. MUST include: productName, category.
+6. Identify COMPETITOR products (matching ABC Foods categories). MUST include: productName, brand, category (derived from product name), quantity, shelfPosition.
+7. Identify OTHER products (NOT matching ABC Foods categories). MUST include: productName, brand, category (derived from product name), quantity, shelfPosition.
+8. Calculate shelf share percentage for ABC Foods: (ABC Foods present products / total products on shelf) * 100.
+9. Calculate shelf share percentage for competitors: (competitor products / total products on shelf) * 100.
+10. Calculate shelf share percentage for other products: (other products / total products on shelf) * 100.
+11. Provide shelf position information (top shelf, middle shelf, bottom shelf, left, center, right).
+12. Include presentCount and missingCount in abcFoods shelfShare.
+13. PLACEMENT VALIDATION (ABC Foods products only):
+ - Each ABC Foods product in the catalog includes a recommended Placement (e.g., Top Shelf, Eye Level, Bottom Shelf, Checkout Aisle).
+ - For every ABC Foods product found in the present array, compare its detected shelfPosition against the Placement value from the catalog.
+ - Set placementStatus to Correct if the detected shelfPosition matches or is consistent with the catalog Placement guideline.
+ - Set placementStatus to Needs Attention if the detected shelfPosition does not match the catalog Placement guideline.
+ - Do NOT add placementStatus to competitors or otherProducts.
+
+14. STOCK ALERT FIELDS FOR ABC FOODS PRESENT PRODUCTS:
+ - For every product in abcFoods.present, always include storeQuantity, alertType, and message.
+ - storeQuantity must be taken from the catalog value for that exact product.
+ - LOW_STOCK must be based only on storeQuantity:
+ - If storeQuantity &lt; 50:
+  - set alertType to LOW_STOCK
+  - set message to Store quantity is below 50
+ - If storeQuantity &gt;= 50:
+  - set alertType to STOCKED
+  - set message to Stocked
+
+15. Do NOT return a separate stockAlerts node.
+16. Return ONLY the JSON structure, no additional text or explanation.
+
+CRITICAL:
+- ABC Foods products (present and missing): Category MUST be EXACTLY one of these seven values: Salty Snacks, Sweet Snacks, Confectionery, Biscuits, Premium Range, Health Bars, or Kids Range. Use exact category names (case-sensitive). Never use any other value for ABC Foods products.
+
+- COMPETITOR products: ABC Foods specializes in SNACKS and SWEETS only. ONLY include packaged snack and sweet products.
+ * INCLUDE ONLY: Chips (Lays, Pringles, Doritos), Chocolates (Snickers, Cadbury, KitKat), Cookies (Oreo, Britannia), Candies (Mentos, Skittles, Eclairs), Biscuits (Parle-G, Good Day), Snack Bars (Quest, Clif)
+ * EXCLUDE ALL:
+ - Beverages: Pepsi, Coke, Thumbs Up, Sprite, Fanta, Mountain Dew, 7Up
+ - Juices: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz
+ - Cereals: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats, any breakfast cereal
+ - Spreads: Pintola, Nutella, peanut butter, jam
+ - Dairy: Milk, yogurt, cheese
+ - Others: Bread, fresh foods, household items
+
+- OTHER PRODUCTS: MUST include ALL non-snack/sweet products.
+ * JUICES GO HERE: Frooti, Real, Tropicana, Maaza, Slice, Appy Fizz, any packaged juice -&gt; category Juice
+ * CEREALS GO HERE: Kellogg&apos;s Corn Flakes, Chocos, Muesli, Oats -&gt; category Cereal
+ * BEVERAGES GO HERE: Pepsi, Coke, Thumbs Up, Sprite, Fanta, 7Up, Mirinda, Mountain Dew -&gt; category Soft Drink
+ * SPREADS GO HERE: Pintola, Nutella, peanut butter, jam -&gt; category Spread
+ * OTHERS: Bread, dairy, fresh items, frozen foods, household items, non-food
+
+- MANDATORY RULES:
+ * Frooti, Real, Tropicana, Maaza, any juice -&gt; otherProducts with category Juice, NEVER competitors
+ * Kellogg&apos;s, Chocos, any cereal -&gt; otherProducts with category Cereal, NEVER competitors
+ * Pepsi, Coke, Thumbs Up, any beverage -&gt; otherProducts with category Soft Drink, NEVER competitors
+ * Pintola, peanut butter, any spread -&gt; otherProducts with category Spread, NEVER competitors
+
+- Never omit the category field for any product.
+- Include quantity for every found product in abcFoods.present, competitors, and otherProducts.
+- Ensure all numeric values are accurate and the sum of ABC Foods, competitors, and other products percentages equals 100%.
+- Match ABC Foods product names exactly as they appear in the catalog.
+- placementStatus is ONLY applicable to ABC Foods present products. Never add it to competitors or otherProducts.
+- storeQuantity, alertType, and message are ONLY applicable to abcFoods.present products. Never add them to competitors, otherProducts, or missing products.
+- LOW_STOCK decision must use only this condition: storeQuantity &lt; 50.
+</content>
+        <fileDroppingStrategy>{&quot;dropFilesBy&quot;:&quot;LAST_MODIFIED_DATE&quot;,&quot;dropFileStartingWith&quot;:&quot;OLDEST&quot;}</fileDroppingStrategy>
+        <inputs>
+            <apiName>ContentDocumentID</apiName>
+            <definition>SOBJECT://ContentDocument</definition>
+            <masterLabel>ContentDocumentID</masterLabel>
+            <referenceName>Input:ContentDocumentID</referenceName>
+            <required>true</required>
+        </inputs>
+        <isCitationEnabled>false</isCitationEnabled>
+        <primaryModel>sfdc_ai__DefaultGPT54</primaryModel>
+        <status>Published</status>
+        <templateDataProviders>
+            <definition>apex://ProductCatalogService</definition>
+            <description>Retrieves all active products available in the system</description>
+            <label>Get Products</label>
+            <parameters>
+                <definition>primitive://String</definition>
+                <isRequired>false</isRequired>
+                <parameterName>placeholder</parameterName>
+                <valueExpression>{!$Input:ContentDocumentID.Id}</valueExpression>
+            </parameters>
+            <referenceName>Apex:ProductCatalogService</referenceName>
+        </templateDataProviders>
+        <versionIdentifier>bGjKa5K8eUOxs57NQey2+ndcOf6JOzghwdPHT384rV0=_13</versionIdentifier>
+    </templateVersions>
+    <type>einstein_gpt__flex</type>
+    <visibility>Global</visibility>
+</GenAiPromptTemplate>

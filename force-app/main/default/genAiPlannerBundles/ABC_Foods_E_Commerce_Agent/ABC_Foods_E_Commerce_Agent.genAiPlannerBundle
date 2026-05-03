@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <description>ABC Foods E-Commerce Agent helps customers discover products and find nearby retail stores. The agent provides detailed product information and locates stores based on user location, enhancing the customer shopping experience.</description>
+    <localActionLinks>
+        <genAiFunctionName>AnswerQuestionsWithKnowledge_16jbm000001TZ8H</genAiFunctionName>
+    </localActionLinks>
+    <localTopicLinks>
+        <genAiPluginName>Get_Nearby_Retail_Stores_16jbm000001TZ8H</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>Get_Product_Information_16jbm000001TZ8H</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>Get_Nearby_Retail_Stores_16jbm000001TZ8H</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Retail Stores Address information retrieval and search functionality for ABC Foods e-commerce Retail Stores</description>
+        <developerName>Get_Nearby_Retail_Stores_16jbm000001TZ8H</developerName>
+        <genAiPluginInstructions>
+            <description>When a customer asks about retail stores , call the action Get_Retail_Stores_By_City_179bm000002f1LZ</description>
+            <developerName>instructions_0_1777755407743</developerName>
+            <language>en_US</language>
+            <masterLabel>instructions_0_1777755407743</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Retail_Stores_By_City_179bm000002f1LZ</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Retail_Stores_By_City_179bm000002f1LZ</fullName>
+            <description>Returns retail store addresses for a given city</description>
+            <developerName>Get_Retail_Stores_By_City_179bm000002f1LZ</developerName>
+            <invocationTarget>RetailStoreInfoService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Retail_Stores_By_City</localDeveloperName>
+            <masterLabel>Get Retail Stores By City</masterLabel>
+        </localActions>
+        <localDeveloperName>Get_Nearby_Retail_Stores</localDeveloperName>
+        <masterLabel>Get Nearby Retail Stores</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Search and retrieve ABC Foods Retail Stores information including Address. Use this action when customers ask about nearby retail stores or retail stores in their location.</scope>
+    </localTopics>
+    <localTopics>
+        <fullName>Get_Product_Information_16jbm000001TZ8H</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Product information retrieval and search functionality for ABC Foods e-commerce catalog</description>
+        <developerName>Get_Product_Information_16jbm000001TZ8H</developerName>
+        <genAiPluginInstructions>
+            <description>When a customer asks about products, call the action Get_Product_Information_179bm000002diw5</description>
+            <developerName>instruction_1</developerName>
+            <language xsi:nil="true"/>
+            <masterLabel>Instruction 1</masterLabel>
+            <sortOrder>0</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>Get_Product_Information_179bm000002diw5</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>Get_Product_Information_179bm000002diw5</fullName>
+            <description>Returns product details for ABC Foods products</description>
+            <developerName>Get_Product_Information_179bm000002diw5</developerName>
+            <invocationTarget>ProductInfoService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>Get_Product_Information</localDeveloperName>
+            <masterLabel>Get Product Information</masterLabel>
+        </localActions>
+        <localDeveloperName>Get_Product_Information</localDeveloperName>
+        <masterLabel>Get Product Information</masterLabel>
+        <pluginType>Topic</pluginType>
+        <scope>Search and retrieve ABC Foods product information including names, descriptions, categories (Cookies &amp; Biscuits, Confectionery, Health Bars, Premium Range, Kids Range, Salty Snacks, Sweet Snacks). Use this action when customers ask about products, product availability, product categories, or specific product details.</scope>
+    </localTopics>
+    <masterLabel>ABC Foods E-Commerce Agent</masterLabel>
+    <plannerActions>
+        <fullName>AnswerQuestionsWithKnowledge_16jbm000001TZ8H</fullName>
+        <description>Answers questions about company policies and procedures, troubleshooting steps, or product information. For example: “What is your return policy?” “How do I fix an issue?” or “What features does a product have?”</description>
+        <developerName>AnswerQuestionsWithKnowledge_16jbm000001TZ8H</developerName>
+        <invocationTarget>streamKnowledgeSearch</invocationTarget>
+        <invocationTargetType>standardInvocableAction</invocationTargetType>
+        <isConfirmationRequired>false</isConfirmationRequired>
+        <isIncludeInProgressIndicator>true</isIncludeInProgressIndicator>
+        <localDeveloperName>AnswerQuestionsWithKnowledge</localDeveloperName>
+        <masterLabel>Answer Questions with Knowledge</masterLabel>
+        <progressIndicatorMessage>Getting answers</progressIndicatorMessage>
+        <source>EmployeeCopilot__AnswerQuestionsWithKnowledge</source>
+    </plannerActions>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__Messaging</surface>
+        <surfaceType>Messaging</surfaceType>
+    </plannerSurfaces>
+    <plannerSurfaces>
+        <adaptiveResponseAllowed>true</adaptiveResponseAllowed>
+        <callRecordingAllowed>false</callRecordingAllowed>
+        <surface>SurfaceAction__CustomerWebClient</surface>
+        <surfaceType>CustomerWebClient</surfaceType>
+    </plannerSurfaces>
+    <plannerType>AiCopilot__ReAct</plannerType>
+    <ruleExpressions>
+        <conditions>
+            <leftOperand>isVerified</leftOperand>
+            <leftOperandType>Variable</leftOperandType>
+            <operator>equal</operator>
+            <rightOperandValue>true</rightOperandValue>
+        </conditions>
+        <expression>Verified_User</expression>
+        <expressionLabel>Verified User</expressionLabel>
+        <expressionName>Verified_User</expressionName>
+        <expressionType>sel</expressionType>
+    </ruleExpressions>
+</GenAiPlannerBundle>

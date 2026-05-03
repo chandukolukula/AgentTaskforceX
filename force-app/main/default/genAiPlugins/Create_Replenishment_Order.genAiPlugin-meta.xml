@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlugin xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Proactively creates a Salesforce replenishment order when the shelf audit detects critically missing SKUs. Reduces supply chain friction by automating order creation directly from the audit findings without manual rep intervention.</description>
+    <developerName>Create_Replenishment_Order</developerName>
+    <masterLabel>Create Replenishment Order</masterLabel>
+    <pluginType>DataAction</pluginType>
+    <status>Active</status>
+    <pluginFunctions>
+        <functionName>createReplenishmentOrder</functionName>
+        <description>Creates a replenishment order in Salesforce for missing SKUs detected during a shelf audit.</description>
+        <type>Apex</type>
+        <responseHandler>Apex</responseHandler>
+        <parameters>
+            <parameterName>storeId</parameterName>
+            <dataType>String</dataType>
+            <description>The Salesforce ID of the Retail Store</description>
+            <isRequired>true</isRequired>
+        </parameters>
+        <parameters>
+            <parameterName>auditId</parameterName>
+            <dataType>String</dataType>
+            <description>The Salesforce ID of the ShelfAudit__c record</description>
+            <isRequired>true</isRequired>
+        </parameters>
+        <parameters>
+            <parameterName>missingProductIds</parameterName>
+            <dataType>String</dataType>
+            <description>Comma-separated list of Product2 IDs for the missing SKUs that need restocking</description>
+            <isRequired>true</isRequired>
+        </parameters>
+    </pluginFunctions>
+</GenAiPlugin>

@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Google Vision API" icon-name="custom:custom14">
+        <div class="slds-p-horizontal_medium">
+            <lightning-input type="file" label="Upload Image" onchange={handleImageUpload}></lightning-input>
+            <lightning-button variant="brand" label="Analyze Image" onclick={handleAnalyzeImage} class="slds-m-top_medium"></lightning-button>
+            <lightning-button variant="neutral" label="Cancel" onclick={handleCancel} class="slds-m-top_medium"></lightning-button>
+
+            <template if:true={imageUrl}>
+                <img src={imageUrl} alt="Image preview" style="max-width:100%; margin-top:10px;"/>
+            </template>
+
+            <!-- Raw Google Vision API Response (shown first) -->
+            <template if:true={rawApiResponse}>
+                <div style="margin-top:16px; border:1px solid #d8dde6; border-radius:4px; overflow:hidden;">
+                    <div style="background:#f4f6f9; padding:8px 12px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #d8dde6;">
+                        <strong style="font-size:13px;">🔍 Raw Google Vision API Response</strong>
+                        <button onclick={toggleRawResponse} style="background:none; border:none; cursor:pointer; color:#0070d2; font-size:12px;">
+                            {rawResponseLabel}
+                        </button>
+                    </div>
+                    <template if:true={showRawResponse}>
+                        <pre style="font-size:11px; max-height:300px; overflow-y:auto; padding:10px; margin:0; background:#fff; white-space:pre-wrap; word-break:break-all;">{rawApiResponse}</pre>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Formatted Analysis Result (shown below raw response) -->
+            <template if:true={analysisResult}>
+                <p style="margin-top:15px;"><strong>Analysis Result:</strong></p>
+                <pre>{analysisResult}</pre>
+            </template>
+        </div>
+    </lightning-card>
+</template>

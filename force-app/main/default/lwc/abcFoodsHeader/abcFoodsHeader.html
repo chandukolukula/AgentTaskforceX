@@ -1,0 +1,24 @@
+<template>
+    <header class="abc-header">
+        <div class="header-inner">
+            <a href="#" class="brand" aria-label="ABC Foods home">
+                <template if:false={showFallbackLogo}>
+                    <img class="brand-logo" src={logoUrl} alt="ABC Foods" onerror={handleLogoError}>
+                </template>
+                <template if:true={showFallbackLogo}>
+                    <span class="fallback-logo">ABC FOODS</span>
+                </template>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary">
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">PRODUCTS</a></li>
+                    <li><a href="#">INVESTOR RELATIONS</a></li>
+                    <li><a href="#">CAREERS</a></li>
+                    <li><a href="#">CONTACTS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</template>

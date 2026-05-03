@@ -1,0 +1,5 @@
+{
+  "title" : "Rep Performance Summary",
+  "description" : "Weekly field rep performance summary with compliance scores and store highlights",
+  "lightning:type" : "@apexClassType/c__RepPerformanceSummaryService$RepPerformanceSummaryResult"
+}

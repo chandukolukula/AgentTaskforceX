@@ -1,0 +1,115 @@
+<template>
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="About page banner">
+        <div class="page-hero-inner">
+            <p class="eyebrow">SINCE 1998</p>
+            <h1 class="page-title">Our Story</h1>
+            <p class="page-subtitle">
+                25 years of flavour, quality, and care — building a brand that millions
+                of Indian families trust every single day.
+            </p>
+        </div>
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,30 Q300,60 600,30 Q900,0 1200,30 L1200,60 L0,60 Z" fill="#FFFDF8"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Origin Story -->
+    <section class="origin-section" aria-labelledby="origin-heading">
+        <div class="content-shell">
+            <div class="origin-grid">
+                <div class="origin-text">
+                    <p class="section-eyebrow">HOW WE STARTED</p>
+                    <h2 id="origin-heading" class="section-title">From a local snack business to a national brand</h2>
+                    <p class="body-text">
+                        ABC Foods was founded in 1998 by a small team of food enthusiasts in Bangalore,
+                        driven by a simple belief: quality snacks shouldn't be a luxury.
+                        We started by supplying independent kirana stores across South India with freshly
+                        made salty snacks and seasonal confectionery.
+                    </p>
+                    <p class="body-text">
+                        Over the next decade, word-of-mouth and consistent quality helped us expand into
+                        larger retail chains, supermarkets, and eventually modern trade across the country.
+                        Today, ABC Foods products are available in over 60,000 outlets — but our commitment
+                        to the same home-style quality remains unchanged.
+                    </p>
+                </div>
+                <div class="timeline">
+                    <template for:each={milestones} for:item="m">
+                        <div key={m.year} class="timeline-item">
+                            <div class="timeline-dot" aria-hidden="true"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-year">{m.year}</span>
+                                <p class="timeline-text">{m.text}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section" aria-labelledby="values-heading">
+        <div class="content-shell">
+            <header class="section-header">
+                <p class="section-eyebrow">WHAT WE STAND FOR</p>
+                <h2 id="values-heading" class="section-title">Our Core Values</h2>
+            </header>
+            <div class="values-grid">
+                <template for:each={values} for:item="v">
+                    <article key={v.title} class="value-card">
+                        <span class="value-icon" aria-hidden="true">{v.icon}</span>
+                        <h3 class="value-title">{v.title}</h3>
+                        <p class="value-desc">{v.desc}</p>
+                    </article>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Band -->
+    <section class="stats-band" aria-label="Company metrics">
+        <div class="stats-inner">
+            <template for:each={stats} for:item="s">
+                <div key={s.label} class="stat-block">
+                    <span class="stat-value">{s.value}</span>
+                    <span class="stat-label">{s.label}</span>
+                </div>
+            </template>
+        </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="mission-section" aria-labelledby="mission-heading">
+        <div class="content-shell mission-inner">
+            <div class="mission-text">
+                <p class="section-eyebrow">OUR MISSION</p>
+                <h2 id="mission-heading" class="section-title">Making quality accessible to every household</h2>
+                <p class="body-text">
+                    We believe that great-tasting, high-quality food should be available to every family —
+                    regardless of where they live or what they earn. Our product teams work closely with
+                    nutritionists, culinary experts, and local ingredient suppliers to create snacks that
+                    balance indulgence with everyday wellness.
+                </p>
+                <p class="body-text">
+                    From fortified grain snacks and reduced-sugar confectionery to premium seasonal gifting
+                    ranges, every ABC Foods product is crafted with intention, transparency, and care.
+                </p>
+            </div>
+            <div class="mission-pillars">
+                <template for:each={pillars} for:item="p">
+                    <div key={p.title} class="pillar">
+                        <span class="pillar-icon" aria-hidden="true">{p.icon}</span>
+                        <div>
+                            <p class="pillar-title">{p.title}</p>
+                            <p class="pillar-desc">{p.desc}</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+</template>

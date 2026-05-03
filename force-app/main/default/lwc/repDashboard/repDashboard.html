@@ -1,0 +1,185 @@
+<template>
+    <div class="rep-dashboard">
+
+        <!-- ── Header ─────────────────────────────────── -->
+        <div class="dashboard-header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <lightning-icon icon-name="standard:store" size="small"></lightning-icon>
+                </div>
+                <div>
+                    <p class="greeting-text">Good {timeOfDay},</p>
+                    <p class="rep-name">{repName}</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-date">
+                    <lightning-icon icon-name="utility:event" size="x-small" class="slds-m-right_xx-small"></lightning-icon>
+                    {today}
+                </div>
+            </div>
+        </div>
+
+        <!-- ── KPI Cards ──────────────────────────────── -->
+        <div class="kpi-grid">
+
+            <!-- Visits Today -->
+            <div class="kpi-card kpi-visits" onclick={navigateToVisits}>
+                <div class="kpi-card-header">
+                    <lightning-icon icon-name="standard:visit" size="small"></lightning-icon>
+                    <span class="kpi-label">Visits Today</span>
+                </div>
+                <div class="kpi-value">
+                    {visitsCompleted}<span class="kpi-denom">/{visitsPlanned}</span>
+                </div>
+                <div class="kpi-progress-track">
+                    <div class="kpi-progress-fill" style={visitProgressStyle}></div>
+                </div>
+                <div class="kpi-trend">{visitProgress}% completed</div>
+            </div>
+
+            <!-- Open Tasks -->
+            <div class="kpi-card kpi-tasks" onclick={navigateToTasks}>
+                <div class="kpi-card-header">
+                    <lightning-icon icon-name="utility:task" size="small"></lightning-icon>
+                    <span class="kpi-label">Open Tasks</span>
+                </div>
+                <div class="kpi-value">{openTasks}</div>
+                <div class="kpi-trend">
+                    <template if:true={criticalTasks}>
+                        <span class="critical-pill">{criticalTasks} critical</span>
+                    </template>
+                    <template if:false={criticalTasks}>
+                        All on track
+                    </template>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── Compliance Trend ──────────────────────── -->
+        <template if:true={hasTrend}>
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <lightning-icon icon-name="utility:chart" size="x-small"></lightning-icon>
+                        <span class="section-title">Compliance Trend</span>
+                        <span class="count-pill">{complianceTrend.length} audits</span>
+                    </div>
+                    <span class={trendAvgClass}>{trendAvgScore}% avg</span>
+                </div>
+                <div class="sparkline-body">
+                    <div class="sparkline-chart">
+                        <svg viewBox="0 0 300 68" class="sparkline-svg" preserveAspectRatio="none">
+                            <line x1="10" y1="12" x2="290" y2="12" stroke="#e4e4e3" stroke-width="0.8"/>
+                            <line x1="10" y1="30" x2="290" y2="30" stroke="#e4e4e3" stroke-width="0.8"/>
+                            <line x1="10" y1="48" x2="290" y2="48" stroke="#e4e4e3" stroke-width="0.8"/>
+                            <text x="8" y="14" text-anchor="end" font-size="7" fill="#bbb">100</text>
+                            <text x="8" y="32" text-anchor="end" font-size="7" fill="#bbb">50</text>
+                            <text x="8" y="50" text-anchor="end" font-size="7" fill="#bbb">0</text>
+                            <path d={trendAreaPath} fill={trendColor} opacity="0.15"/>
+                            <polyline points={trendPolylinePoints} fill="none" stroke={trendColor} stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                            <template for:each={trendPoints} for:item="pt">
+                                <g key={pt.id}>
+                                    <circle cx={pt.x} cy={pt.y} r="3" fill="#fff" stroke={trendColor} stroke-width="1.5"/>
+                                    <text x={pt.x} y="63" text-anchor="middle" font-size="7" fill="#706e6b">{pt.dateLabel}</text>
+                                </g>
+                            </template>
+                        </svg>
+                    </div>
+                    <div class="sparkline-stats">
+                        <div class="trend-kpi">
+                            <span class="trend-kpi-label">Latest</span>
+                            <span class="trend-kpi-val">{trendLatestScore}%</span>
+                        </div>
+                        <div class="trend-kpi">
+                            <span class="trend-kpi-label">High</span>
+                            <span class="trend-kpi-val trend-kpi-green">{trendHighScore}%</span>
+                        </div>
+                        <div class="trend-kpi">
+                            <span class="trend-kpi-label">Low</span>
+                            <span class="trend-kpi-val trend-kpi-red">{trendLowScore}%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <!-- ── Today's Route ──────────────────────────── -->
+        <div class="section-card">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <lightning-icon icon-name="utility:routing_offline" size="x-small"></lightning-icon>
+                    <span class="section-title">Today's Route</span>
+                    <template if:true={visitsPlanned}>
+                        <span class="count-pill">{visitsPlanned} stops</span>
+                    </template>
+                </div>
+                <lightning-button-icon
+                    icon-name="utility:refresh"
+                    variant="bare"
+                    size="small"
+                    onclick={refreshData}
+                    alternative-text="Refresh">
+                </lightning-button-icon>
+            </div>
+
+            <template if:true={isLoadingVisits}>
+                <div class="loading-spinner">
+                    <lightning-spinner alternative-text="Loading visits..." size="small"></lightning-spinner>
+                </div>
+            </template>
+
+            <template if:false={isLoadingVisits}>
+                <template for:each={todayVisits} for:item="visit">
+                    <div key={visit.Id} class={visit.cardClass} onclick={handleVisitTap} data-visit-id={visit.Id}>
+                        <div class="visit-seq">{visit.seq}</div>
+                        <div class="visit-main">
+                            <div class="visit-store-name">{visit.storeName}</div>
+                            <div class="visit-meta">
+                                <lightning-icon icon-name="utility:clock" size="xx-small" class="slds-m-right_xx-small"></lightning-icon>
+                                {visit.plannedTime}
+                                <template if:true={visit.address}>
+                                    <span class="meta-sep">&bull;</span>{visit.address}
+                                </template>
+                            </div>
+                        </div>
+                        <span class={visit.statusClass}>{visit.status}</span>
+                    </div>
+                </template>
+
+                <template if:true={noVisitsToday}>
+                    <div class="empty-state">
+                        <lightning-icon icon-name="utility:event" size="large" class="empty-icon"></lightning-icon>
+                        <p class="empty-title">No visits scheduled</p>
+                        <p class="empty-sub">Your route for today will appear here.</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+
+        <!-- ── Priority Actions ───────────────────────── -->
+        <template if:true={hasRecommendations}>
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-header-left">
+                        <lightning-icon icon-name="utility:priority" size="x-small"></lightning-icon>
+                        <span class="section-title">Priority Actions</span>
+                        <span class="count-pill">{recommendations.length}</span>
+                    </div>
+                </div>
+                <template for:each={recommendations} for:item="rec">
+                    <div key={rec.Id} class={rec.rowClass} onclick={handleRecAction} data-rec-id={rec.Id}>
+                        <span class={rec.priorityDot}></span>
+                        <div class="rec-content">
+                            <div class="rec-store">{rec.storeName}</div>
+                            <div class="rec-text">{rec.Recommendation__c}</div>
+                        </div>
+                        <span class="rec-category">{rec.Category__c}</span>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+    </div>
+</template>

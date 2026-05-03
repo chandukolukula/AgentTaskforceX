@@ -1,0 +1,67 @@
+{
+  "type" : "sfdc_cms__view",
+  "title" : "Products",
+  "contentBody" : {
+    "component" : {
+      "children" : [ {
+        "children" : [ {
+          "attributes" : {
+            "backgroundImageConfig" : "",
+            "backgroundImageOverlay" : "rgba(0,0,0,0)",
+            "componentSpacerSize" : "",
+            "layoutDirectionDesktop" : "row",
+            "layoutDirectionMobile" : "column",
+            "layoutDirectionTablet" : "column",
+            "maxContentWidth" : "",
+            "sectionColumnGutterWidth" : "",
+            "sectionConfig" : "{\"UUID\":\"79789018-a2c4-4352-a791-f34e90e354ab\",\"columns\":[{\"UUID\":\"9de09b50-dfab-4e46-9469-9e824158a701\",\"columnName\":\"Column 1\",\"columnKey\":\"col1\",\"columnWidth\":\"12\",\"seedComponents\":[]}]}",
+            "sectionMinHeight" : "",
+            "sectionVerticalAlign" : "flex-start"
+          },
+          "children" : [ {
+            "children" : [ {
+              "attributes" : { },
+              "definition" : "c:abcFoodsProductsPage",
+              "id" : "8e7ad9ce-8402-4ec9-a2bf-206bb0a7ff44",
+              "type" : "component"
+            } ],
+            "id" : "9de09b50-dfab-4e46-9469-9e824158a701",
+            "name" : "col1",
+            "title" : "Column 1",
+            "type" : "region"
+          } ],
+          "definition" : "community_layout:section",
+          "id" : "79789018-a2c4-4352-a791-f34e90e354ab",
+          "type" : "component"
+        } ],
+        "id" : "efa0d01f-ce89-4777-ad71-c7d898bad30f",
+        "name" : "content",
+        "title" : "Content",
+        "type" : "region"
+      }, {
+        "children" : [ {
+          "attributes" : {
+            "customHeadTags" : "",
+            "description" : "",
+            "pageTitle" : "Products",
+            "recordId" : "{!recordId}"
+          },
+          "definition" : "community_builder:seoAssistant",
+          "id" : "821f256b-451c-431d-afcc-cef5443c22bd",
+          "type" : "component"
+        } ],
+        "id" : "562df02d-54da-46b9-9d2c-b9856523f598",
+        "name" : "sfdcHiddenRegion",
+        "title" : "sfdcHiddenRegion",
+        "type" : "region"
+      } ],
+      "definition" : "community_layout:sldsFlexibleLayout",
+      "id" : "8637a8c8-dacf-4aa2-88e8-1907684e5c70",
+      "type" : "component"
+    },
+    "dataProviders" : [ ],
+    "themeLayoutType" : "Inner",
+    "viewType" : "custom-products"
+  },
+  "urlName" : "products"
+}

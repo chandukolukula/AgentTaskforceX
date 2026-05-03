@@ -1,0 +1,50 @@
+<template>
+    <article class="commerce-card">
+        <div class="commerce-card__header">
+            <div>
+                <p class="commerce-card__eyebrow">ABC Foods Catalog</p>
+                <h2 class="commerce-card__title">Product Search Results</h2>
+            </div>
+            <template if:true={hasProducts}>
+                <div class="commerce-card__count">{productCount}</div>
+            </template>
+        </div>
+
+        <template if:true={message}>
+            <p class="commerce-card__message">{message}</p>
+        </template>
+
+        <template if:true={hasProducts}>
+            <ul class="product-list" role="list">
+                <template for:each={products} for:item="product">
+                    <li key={product.productId} class="product-card">
+                        <div class="product-card__top">
+                            <p class="product-card__name">{product.name}</p>
+                            <template if:true={product.category}>
+                                <span class="product-card__category">{product.category}</span>
+                            </template>
+                        </div>
+
+                        <template if:true={product.description}>
+                            <p class="product-card__description">{product.description}</p>
+                        </template>
+
+                        <div class="product-card__meta">
+                            <template if:true={product.sku}>
+                                <span class="product-meta-pill">SKU: {product.sku}</span>
+                            </template>
+
+                            <template if:true={product.expectedFacings}>
+                                <span class="product-meta-pill">Facings: {product.expectedFacings}</span>
+                            </template>
+
+                            <template if:true={product.planogramPosition}>
+                                <span class="product-meta-pill">Planogram: {product.planogramPosition}</span>
+                            </template>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </article>
+</template>

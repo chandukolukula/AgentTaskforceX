@@ -1,0 +1,67 @@
+<template>
+    <div class="perf-panel">
+
+        <!-- ── Header ─────────────────────────────────────── -->
+        <div class="panel-header">
+            <div class="header-brand">
+                <span class="brand-dot"></span>
+                <span class="brand-name">Field Rep</span>
+                <span class="header-divider">|</span>
+                <span class="header-label">Weekly Performance</span>
+            </div>
+            <div class="rep-row">
+                <span class="rep-name">{repName}</span>
+                <template if:true={weekLabel}>
+                    <span class="week-badge">{weekLabel}</span>
+                </template>
+            </div>
+        </div>
+
+        <!-- ── KPI stat pills ─────────────────────────────── -->
+        <div class="stats-row">
+            <template for:each={stats} for:item="s">
+                <div key={s.id} class={s.cls}>
+                    <span class="stat-value">{s.value}</span>
+                    <span class="stat-label">{s.label}</span>
+                </div>
+            </template>
+        </div>
+
+        <!-- ── Store highlights ───────────────────────────── -->
+        <template if:true={bestStoreName}>
+            <div class="store-highlights">
+                <div class="store-card store-card--best">
+                    <div class="store-card-icon best-icon">
+                        <lightning-icon icon-name="utility:like" size="x-small"></lightning-icon>
+                    </div>
+                    <div class="store-card-content">
+                        <span class="store-card-label">Best this week</span>
+                        <span class="store-card-name">{bestStoreName}</span>
+                    </div>
+                    <span class="store-card-score store-score--green">{bestStoreDisplay}%</span>
+                </div>
+                <template if:true={showWorstStore}>
+                    <div class="store-card store-card--worst">
+                        <div class="store-card-icon worst-icon">
+                            <lightning-icon icon-name="utility:priority" size="x-small"></lightning-icon>
+                        </div>
+                        <div class="store-card-content">
+                            <span class="store-card-label">Needs attention</span>
+                            <span class="store-card-name">{worstStoreName}</span>
+                        </div>
+                        <span class="store-card-score store-score--red">{worstStoreDisplay}%</span>
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <!-- ── Context message ────────────────────────────── -->
+        <template if:true={displayMessage}>
+            <div class="context-message">
+                <lightning-icon icon-name="utility:info_alt" size="x-small" class="info-icon"></lightning-icon>
+                <span>{displayMessage}</span>
+            </div>
+        </template>
+
+    </div>
+</template>

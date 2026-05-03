@@ -1,0 +1,28 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "periodDays" : {
+      "title" : "Period Days",
+      "description" : "Days to look back for trend data (default 30)",
+      "lightning:type" : "lightning__integerType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "storeId" : {
+      "title" : "Store ID",
+      "description" : "Salesforce Record ID of the RetailStore. Provide this when the user is on a store record page. Takes priority over Store Name.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "storeName" : {
+      "title" : "Store Name",
+      "description" : "Name of the retail store as mentioned by the user in conversation (e.g. \"Metro Hypermarket\"). Used when Store ID is not available.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType",
+  "lightning:textIndexed" : true
+}

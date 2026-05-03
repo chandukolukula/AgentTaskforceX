@@ -1,0 +1,54 @@
+<template>
+    <article class="stores-card">
+        <div class="stores-card__header">
+            <div>
+                <p class="stores-card__eyebrow">ABC Foods Retail Network</p>
+                <h2 class="stores-card__title">Store Locations</h2>
+                <template if:true={citySearched}>
+                    <p class="stores-card__subtitle">City: {citySearched}</p>
+                </template>
+            </div>
+            <template if:true={hasStores}>
+                <div class="stores-card__count">{storeCount}</div>
+            </template>
+        </div>
+
+        <template if:true={message}>
+            <p class="stores-card__message">{message}</p>
+        </template>
+
+        <template if:true={hasStores}>
+            <ul class="store-list" role="list">
+                <template for:each={stores} for:item="store">
+                    <li key={store.storeId} class="store-card">
+                        <div class="store-card__top">
+                            <p class="store-card__name">{store.name}</p>
+                            <template if:true={store.city}>
+                                <span class="store-card__city">{store.city}</span>
+                            </template>
+                        </div>
+
+                        <template if:true={store.formattedAddress}>
+                            <p class="store-card__address">{store.formattedAddress}</p>
+                        </template>
+
+                        <div class="store-card__meta">
+                            <template if:true={store.street}>
+                                <span class="store-meta-pill">Street: {store.street}</span>
+                            </template>
+                            <template if:true={store.state}>
+                                <span class="store-meta-pill">State: {store.state}</span>
+                            </template>
+                            <template if:true={store.postalCode}>
+                                <span class="store-meta-pill">Postal: {store.postalCode}</span>
+                            </template>
+                            <template if:true={store.country}>
+                                <span class="store-meta-pill">Country: {store.country}</span>
+                            </template>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </article>
+</template>

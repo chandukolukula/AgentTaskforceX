@@ -1,0 +1,66 @@
+<template>
+    <section class="hero-section" aria-label="Hero banner">
+        <div class="hero-inner">
+            <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+            <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+            <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+            <div class="hero-content">
+                <p class="hero-eyebrow">WELCOME TO ABC FOODS</p>
+                <h1 class="hero-headline">
+                    Taste the Difference
+                    <br/>
+                    <span class="headline-accent">in Every Bite</span>
+                </h1>
+                <p class="hero-subtext">
+                    From crunchy salty snacks to premium chocolates — 48 products crafted
+                    with quality ingredients for every occasion, every family, every moment.
+                </p>
+
+                <div class="hero-cta-row">
+                    <button class="btn-primary" onclick={navigateToProducts}>Explore Products</button>
+                    <button class="btn-secondary" onclick={navigateToAbout}>Our Story</button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">48+</span>
+                        <span class="stat-label">Products</span>
+                    </div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">60K+</span>
+                        <span class="stat-label">Retail Stores</span>
+                    </div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">25+</span>
+                        <span class="stat-label">Years of Trust</span>
+                    </div>
+                    <div class="stat-divider" aria-hidden="true"></div>
+                    <div class="stat-item">
+                        <span class="stat-value">7</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="category-pill-grid">
+                    <template for:each={categoryPills} for:item="pill">
+                        <div key={pill.label} class="cat-pill" style={pill.style}>
+                            <span class="cat-pill-icon">{pill.icon}</span>
+                            <span class="cat-pill-label">{pill.label}</span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1200 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,40 Q200,80 400,40 Q600,0 800,40 Q1000,80 1200,40 L1200,80 L0,80 Z" fill="#FFFDF8"/>
+            </svg>
+        </div>
+    </section>
+</template>
